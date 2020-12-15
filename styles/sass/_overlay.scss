@@ -1,0 +1,63 @@
+main {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlayWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    div:not(.buttonContainer) {
+        display: grid;
+        width: 90%;
+        grid-template-columns: 40% 30% 20%;
+        &:nth-child(2n) {
+            background-color: rgba(100, 148, 237, 0.336);
+            border-radius: 5px;
+        }
+        span:first-child {
+            margin-left: 5%;
+        }
+        span:nth-child(2):not(:last-child) {
+            justify-self: center;
+        }
+        span:nth-child(3) {
+            margin-left: 40%;
+        }
+        .date {
+            grid-column: 2 / span 2;
+        }
+    }
+    .buttonContainer {
+        width: 90%;
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;;
+        button {
+            width: 150px;
+            border-radius: 5px;
+            &:first-child {
+                margin-left: auto;
+            }
+        }
+        button.errorMessageButton {
+            margin: 0 auto;
+        }
+    }
+}
+
+.overlay.hidden {
+    display: none;
+}

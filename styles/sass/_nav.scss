@@ -1,0 +1,57 @@
+nav {
+    position: absolute;
+    top: 10px;
+}
+
+ul {
+    display: flex;
+    gap: 20px;
+}
+
+label[for="navBar"], 
+input#navBar,
+.collapsedMenu {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    height: 40px;
+    width: 40px;
+}
+
+input#navBar {
+    appearance: none;
+    z-index: 1;
+}
+
+.collapsedMenu {
+    top: 17px;
+    height: 4px;
+    background-color: rgb(39, 39, 39);
+    border-radius: 2px;
+    transition: transform 0.5s;
+    &:before, 
+    &:after {
+        content: '';
+        height: 4px;
+        width: 40px;
+        background-color: rgb(39, 39, 39);
+        position: absolute;
+        transition: transform 0.5s;
+    }
+    &:before {
+        top: 10px;
+    }
+    &:after {
+        top: 20px;
+    }
+}
+
+input#navBar:checked ~ .collapsedMenu {
+    transform: translateY(10px) rotateZ(45deg) ;
+    &:before {
+        display: none;
+    }
+    &:after {
+        transform: translateY(-20px) rotateZ(-90deg);
+    }
+}

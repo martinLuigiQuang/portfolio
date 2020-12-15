@@ -1,0 +1,43 @@
+.calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendarDisplay {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    .calendarNav {
+        grid-column: 1 / span 7;
+        display: flex;
+        align-items: center;
+    }
+    h3 {
+        text-align: center;
+    }
+    button.dayInMonth {
+        display: flex;
+        width: 100%;
+        background-color: white;
+        box-sizing: border-box;
+        padding: 5px;
+        cursor: pointer;
+        border: 2px solid #4E8098;
+        border-radius: 5px;
+    }
+    button:hover, button:focus {
+        background-color: #90C2E7;
+        color: #A31621;
+    }
+    button.previousMonth,
+    button.nextMonth {
+        width: auto;
+    }
+    button.today {
+        background-color: coral;
+    }
+    button.marked {
+        background-color: cyan;
+    }
+}

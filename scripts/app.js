@@ -1,7 +1,7 @@
-import calendar from './calendar.js';
+import apiCall from './apiCall.js';
 
 const app = {
-    buildCalendar: calendar.init,
+    buildCalendar: apiCall.init,
     init: function() {
         this.buildCalendar();
     }

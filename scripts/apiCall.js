@@ -1,28 +1,32 @@
+import calendar from './calendar.js';
+import markedDates from './markedDates.js';
+
 const apiCall = function() {
+    const buildCalendar = calendar.buildCalendar;
+    const dates = markedDates.dates;
+    const classNames = markedDates.classNames;
     const url = 'https://api.github.com/users/martinLuigiQuang/repos';
-    let gitHubStartDates = [];
     const gitHubApiCall = async function() {
         try {
             const promise = await fetch(url);
             const response = await promise.json();
             const startDates = response.map((project) => new Date(project.created_at));
-            const lastUpdates = response.map((project) => new Date(project.pushed_at));
-            getDates(startDates);
+            const pushedDates = response.map((project) => new Date(project.pushed_at));
+            const markedDates = startDates.concat(pushedDates).concat(dates);
+            const markedClasses = (startDates.map(() => 'gitHubStart')).concat(pushedDates.map(() => 'gitHubEnd')).concat(classNames);
+            buildCalendar(markedDates, markedClasses);
         }
         catch (err) {
             console.log(err)
         }
     };
 
-    gitHubApiCall();
-
-    const getDates = function(asyncData) {
-        gitHubStartDates = asyncData;
+    const init = function() {
+        gitHubApiCall();
     }
-    gitHubApiCall();
-    console.log(gitHubStartDates)
+    
     return {
-        gitHubStartDates: gitHubStartDates
+        init: init
     }
 }();
 

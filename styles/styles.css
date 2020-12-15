@@ -268,7 +268,7 @@ h1 {
 }
 
 h3, label, input, span, button {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 ul {
@@ -399,12 +399,18 @@ input#navBar:checked ~ .collapsedMenu:after {
   -ms-grid-column: 1;
   -ms-grid-column-span: 7;
   grid-column: 1 / span 7;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50px 200px 50px;
+      grid-template-columns: 50px 200px 50px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.calendarDisplay .calendarNav button {
+  border: none;
+  border-radius: 5px;
 }
 
 .calendarDisplay h3 {
@@ -412,17 +418,15 @@ input#navBar:checked ~ .collapsedMenu:after {
 }
 
 .calendarDisplay button.dayInMonth {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%;
+  height: calc((100vw - 200px) / 7);
   background-color: white;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 5px;
   cursor: pointer;
   border: 2px solid #4E8098;
   border-radius: 5px;
+  padding: 5px;
 }
 
 .calendarDisplay button:hover, .calendarDisplay button:focus {
@@ -437,6 +441,92 @@ input#navBar:checked ~ .collapsedMenu:after {
 
 .calendarDisplay button.today {
   background-color: coral;
+}
+
+button.dayInMonth {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (25%)[4];
+      grid-template-columns: repeat(4, 25%);
+  -ms-grid-rows: (25%)[3];
+      grid-template-rows: repeat(3, 25%);
+  grid-row-gap: 12%;
+      grid-template-areas: "day day . ." "crc juno juno gis" "coursera . . github";
+}
+
+button.dayInMonth .dayContainer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: day;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+button.dayInMonth a {
+  height: 100%;
+}
+
+button.dayInMonth a.github {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: github;
+}
+
+button.dayInMonth a.gis {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: gis;
+}
+
+button.dayInMonth a.crc {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: crc;
+}
+
+button.dayInMonth a.juno {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: juno;
+}
+
+button.dayInMonth a.coursera {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: coursera;
+}
+
+button.dayInMonth a .symbolContainer--gis, button.dayInMonth a .symbolContainer--crc, button.dayInMonth a .symbolContainer--github, button.dayInMonth a .symbolContainer--juno, button.dayInMonth a .symbolContainer--coursera {
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+button.dayInMonth a .symbolContainer--gis {
+  background-image: url(../../assets/gisIcon.png);
+}
+
+button.dayInMonth a .symbolContainer--crc {
+  background-image: url(../../assets/crcSymbol.png);
+}
+
+button.dayInMonth a .symbolContainer--github {
+  background-image: url(../../assets/gitHubIcon.png);
+}
+
+button.dayInMonth a .symbolContainer--juno {
+  background-image: url(../../assets/junoSymbol.png);
+}
+
+button.dayInMonth a .symbolContainer--coursera {
+  background-image: url(../../assets/courseraIcon.png);
 }
 
 main {

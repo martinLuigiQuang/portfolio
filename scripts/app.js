@@ -1,10 +1,9 @@
 import calendar from './calendar.js';
 
 const app = {
-    buildCalendar: calendar.buildCalendar,
-    gitHubApiCall: calendar.gitHubApiCall,
+    buildCalendar: calendar.init,
     init: function() {
-        this.gitHubApiCall();
+        this.buildCalendar();
     }
 };
 

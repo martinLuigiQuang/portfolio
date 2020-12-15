@@ -1,18 +1,7 @@
-
+import apiCall from './apiCall.js';
 
 const calendar = function() {
-    const url = 'https://api.github.com/users/martinLuigiQuang/repos';
-    const gitHubApiCall = async function() {
-        try {
-            const promise = await fetch(url);
-            const response = await promise.json();
-            const startDates = response.map((project) => new Date(project.created_at));
-            buildCalendar(startDates);
-        }
-        catch (err) {
-            console.log(err)
-        }
-    };
+    const gitHubStartDates = apiCall.gitHubStartDates;
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const calendarSection = document.getElementsByClassName('calendar')[0];
@@ -63,8 +52,8 @@ const calendar = function() {
 
     const isToday = function(date, day) {
         return (
-            date.getFullYear() === today.getFullYear() &&
-            date.getMonth() === today.getMonth() &&
+            calendarYear === today.getFullYear() &&
+            calendarMonth === today.getMonth() &&
             parseInt(day) === today.getDate()
         );
     };
@@ -92,6 +81,11 @@ const calendar = function() {
                     ?   `<button class="dayInMonth ${className}" value="${day}">
                             <span>${day.charAt(0)}</span>
                             <span>${day.charAt(1)}</span>
+                            ${
+                                className.includes('gitHub')
+                                    ?   `<a><i class="fab fa-github ${className}"></i></a>`
+                                    :   ''
+                            }
                         </button>` 
                     :   ''
                 }
@@ -109,7 +103,7 @@ const calendar = function() {
         `;
     };
 
-    const createCalendarDisplay = function(dates) {
+    const createCalendarDisplay = function(dates, className) {
         const filledCalendar = fillCalendar();
         return `
             <form class="calendarDisplay wrapper">
@@ -126,13 +120,19 @@ const calendar = function() {
                 ${
                     filledCalendar.map( (day) => {
                         let dateEntry = createCalendarDateEntry(day, '');
-                        if (isToday(today, day)) {
-                            dateEntry = createCalendarDateEntry(day, 'today');
-                        } else if (isChosenDay(day)) {
-                            dateEntry = createCalendarDateEntry(day, 'chosen');
-                        };
                         if (isMarked(dates, day)) {
-                            dateEntry = createCalendarDateEntry(day, 'marked')
+                            dateEntry = createCalendarDateEntry(day, className);
+                            if (isToday(today, day)) {
+                                dateEntry = createCalendarDateEntry(day, 'today '.concat(className));
+                            } else if (isChosenDay(day)) {
+                                dateEntry = createCalendarDateEntry(day, 'chosen '.concat(className));
+                            };
+                        } else {
+                            if (isToday(today, day)) {
+                                dateEntry = createCalendarDateEntry(day, 'today');
+                            } else if (isChosenDay(day)) {
+                                dateEntry = createCalendarDateEntry(day, 'chosen');
+                            };
                         }
                         return dateEntry;
                     }).reduce((acc, cur) => {
@@ -161,11 +161,11 @@ const calendar = function() {
 
     const handleSubmit = function(event) {
         event.preventDefault();
-        buildCalendar();
+        init();
     }
 
-    const buildCalendar = function(dates) {
-        const calendarDisplay = createCalendarDisplay(dates);
+    const buildCalendar = function(dates, className) {
+        const calendarDisplay = createCalendarDisplay(dates, className);
         calendarSection.innerHTML = calendarDisplay;
         const calendar = document.getElementsByClassName('calendarDisplay')[0];
         calendar.onsubmit = (event) => handleSubmit(event);
@@ -181,8 +181,12 @@ const calendar = function() {
         };
     };
 
+    const init = function() {
+        buildCalendar(gitHubStartDates, 'gitHubStart');
+    }
+
     return {
-        gitHubApiCall: gitHubApiCall
+        init: init
     };
 }();
 

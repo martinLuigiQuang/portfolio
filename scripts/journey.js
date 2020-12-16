@@ -12,6 +12,7 @@ const journey = function() {
             const year = 2020;
             return `
                 <div class="timeline wrapper">
+                    <h2>my tech story</h2>
                     ${
                         milestones.map((milestone) => {
                             return (

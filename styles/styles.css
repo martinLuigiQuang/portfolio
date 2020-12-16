@@ -267,6 +267,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
 }
 
 h1 {
@@ -275,9 +279,12 @@ h1 {
   text-transform: uppercase;
 }
 
+h2 {
+  font-size: 4rem;
+}
+
 h3, label, input, button {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 
 span {
@@ -396,9 +403,11 @@ main {
   background-size: 200%;
   padding: 50px 0;
   position: relative;
+  z-index: 0;
 }
 
 main:before {
+  z-index: -1;
   content: '';
   position: absolute;
   top: 0;
@@ -417,8 +426,14 @@ main:before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 200px;
-  margin-bottom: 50px;
+  height: 150px;
+  margin-bottom: 70px;
+}
+
+.journey h2 {
+  display: block;
+  font-family: 'Russo One', sans-serif;
+  text-transform: uppercase;
 }
 
 .timeline {
@@ -428,6 +443,9 @@ main:before {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   background: -webkit-gradient(linear, left top, right top, from(coral), to(#6f00ff));
   background: linear-gradient(90deg, coral, #6f00ff);
   height: 1px;
@@ -451,6 +469,7 @@ main:before {
   position: absolute;
   width: 200px;
   left: calc(-85px);
+  font-size: 2rem;
 }
 
 .timeline button:nth-child(2n + 1) > h3 {
@@ -462,11 +481,11 @@ main:before {
 }
 
 .timeline button:hover, .timeline button:focus {
-  background: linear-gradient(45deg, cyan, crimson);
+  background: linear-gradient(45deg, cyan, coral, crimson);
 }
 
 .timeline button.focus {
-  background: linear-gradient(45deg, cyan, crimson);
+  background: linear-gradient(45deg, cyan, coral, crimson);
 }
 
 .timeline button.focus:after {
@@ -581,6 +600,10 @@ main:before {
   width: auto;
 }
 
+.calendarDisplay button.chosen {
+  background-color: rgba(255, 217, 0, 0.705);
+}
+
 .calendarDisplay button.today {
   background-color: rgba(255, 127, 80, 0.616);
 }
@@ -599,7 +622,7 @@ button.dayInMonth {
       grid-template-areas: "day day . " "crc juno gis" "coursera . github";
 }
 
-button.dayInMonth .dayContainer {
+.dayContainer {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -609,46 +632,91 @@ button.dayInMonth .dayContainer {
   display: flex;
 }
 
-button.dayInMonth .symbolContainer--gis, button.dayInMonth .symbolContainer--crc, button.dayInMonth .symbolContainer--github, button.dayInMonth .symbolContainer--juno, button.dayInMonth .symbolContainer--coursera {
+.symbolContainer--gis, .symbolContainer--crc, .symbolContainer--github, .symbolContainer--juno, .symbolContainer--coursera {
   height: 100%;
   width: 100%;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-button.dayInMonth .symbolContainer--gis {
+.symbolContainer--gis {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: gis;
   background-image: url(../../assets/gisIcon.png);
 }
 
-button.dayInMonth .symbolContainer--crc {
+.symbolContainer--crc {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: crc;
   background-image: url(../../assets/crcSymbol.png);
 }
 
-button.dayInMonth .symbolContainer--github {
+.symbolContainer--github {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: github;
   background-image: url(../../assets/gitHubIcon.png);
 }
 
-button.dayInMonth .symbolContainer--juno {
+.symbolContainer--juno {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: juno;
   background-image: url(../../assets/junoSymbol.png);
 }
 
-button.dayInMonth .symbolContainer--coursera {
+.symbolContainer--coursera {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: coursera;
   background-image: url(../../assets/courseraIcon.png);
+}
+
+.journal {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.journal h2 {
+  display: block;
+  position: absolute;
+  top: 220px;
+  font-family: 'Bungee Outline', cursive;
+}
+
+.journal .activities {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  gap: 10px;
+  background-color: rgba(245, 245, 245, 0.658);
+}
+
+.journal .activities .symbolContainer--gis, .journal .activities .symbolContainer--crc, .journal .activities .symbolContainer--github, .journal .activities .symbolContainer--juno, .journal .activities .symbolContainer--coursera {
+  height: 50px;
+  width: 50px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 main {

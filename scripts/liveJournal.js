@@ -1,26 +1,55 @@
 const liveJournal = function() {
-    const buildLiveJournal = function() {
-        const calendar = document.getElementsByClassName('calendar')[0];
-        const journal = `
-            <div class="journal">    
-                <h2>my live journal</h2>
-                <section class="cover"></section>
-            </div>
-        `;
-        const createJournalPages = function() {
-            const journalNode = new DOMParser().parseFromString(journal, 'text/xml').documentElement;
-            calendar.appendChild(journalNode)
-            console.log(calendar)
+    const createJournalPages = function(notes) {
+        const chosenDateEntry = document.getElementsByClassName('dayInMonth chosen')[0];
+        let classList = '';
+        if (chosenDateEntry) {
+            classList = chosenDateEntry.classList.toString();
         };
-        createJournalPages();
-    }
-
-    const init = function() {
-        buildLiveJournal()
-    }
+        return `
+            <section class="journal">
+                <h2>live journal</h2>
+                ${
+                    notes
+                        ?   `<div class="story">
+                                <h3>my story</h3>
+                                <p>${notes}</p>
+                            </div>`
+                        :   ''
+                }
+                <div class="activities">
+                    <h3>my activities</h3>
+                    ${
+                        classList.includes('gitHub')
+                            ?   `<div class="symbolContainer--github"></div>`
+                            :   '' 
+                    }
+                    ${
+                        classList.includes('juno')
+                            ?   `<div class="symbolContainer--juno"></div>`
+                            :   ''
+                    }
+                    ${
+                        classList.includes('crc')
+                            ?   `<div class="symbolContainer--crc"></div>`
+                            :   ''
+                    }
+                    ${
+                        classList.includes('coursera')
+                            ?   `<div class="symbolContainer--coursera"></div>`
+                            :   ''
+                    }
+                    ${
+                        classList.includes('gis')
+                            ?   `<div class="symbolContainer--gis"></div>`
+                            :   ''
+                    }
+                </div>
+            </section>
+        `
+    };
 
     return {
-        init: init
+        createJournalPages: createJournalPages
     };
 }();
 

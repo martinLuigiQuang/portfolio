@@ -1,4 +1,7 @@
+import liveJournal from './liveJournal.js';
+
 const calendar = function() {
+    const createJournalPages = liveJournal.createJournalPages;
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const calendarSection = document.getElementsByClassName('calendar')[0];
@@ -45,39 +48,39 @@ const calendar = function() {
 
     const createCalendarDisplay = function(dates) {
         const filledCalendar = fillCalendar();
-        const createCalendarDateEntry = function(day, className) {
+        const createCalendarDateEntry = function(day, classList) {
             return `
                 <div class="dayEntry">
                     ${ !day 
                         ?   ''
-                        :   `<button class="dayInMonth ${className}" value="${day}">
+                        :   `<button class="dayInMonth ${classList}" value="${day}">
                                 <div class="dayContainer">
                                     <span>${day.charAt(0)}</span>
                                     <span>${day.charAt(1)}</span>
                                 </div>
                                 ${
-                                    className.includes('gitHub')
+                                    classList.includes('gitHub')
                                         ?   `<div class="symbolContainer--github"></div>`
                                         :   '' 
                                 }
                                 ${
-                                    className.includes('crc')
-                                        ?   `<div class="symbolContainer--crc"></div>`
-                                        :   ''
-                                }
-                                ${
-                                    className.includes('gis')
-                                        ?   `<div class="symbolContainer--gis"></div>`
-                                        :   ''
-                                }
-                                ${
-                                    className.includes('juno')
+                                    classList.includes('juno')
                                         ?   `<div class="symbolContainer--juno"></div>`
                                         :   ''
                                 }
                                 ${
-                                    className.includes('coursera')
+                                    classList.includes('crc')
+                                        ?   `<div class="symbolContainer--crc"></div>`
+                                        :   ''
+                                }
+                                ${
+                                    classList.includes('coursera')
                                         ?   `<div class="symbolContainer--coursera"></div>`
+                                        :   ''
+                                }
+                                ${
+                                    classList.includes('gis')
+                                        ?   `<div class="symbolContainer--gis"></div>`
                                         :   ''
                                 }
                             </button>`
@@ -102,11 +105,7 @@ const calendar = function() {
             );
         };
         const isChosenDay = function(day) {
-            if (chosenDate !== today) {
-                return parseInt(day) === chosenDate.getDate();
-            } else {
-                return false;
-            }
+            return parseInt(day) === chosenDate.getDate();
         }
         const isMarked = function(dates, day, className) {
             let marked = false;
@@ -125,10 +124,12 @@ const calendar = function() {
         }
         const insertDate = function(day, concatClassName) {
             let dateEntry = createCalendarDateEntry(day, ''.concat(concatClassName));
-            if (isToday(day)) {
-                dateEntry = createCalendarDateEntry(day, 'today '.concat(concatClassName));
+            if (isToday(day) && isChosenDay(day)) {
+                dateEntry = createCalendarDateEntry(day, 'today chosen '.concat(concatClassName));
             } else if (isChosenDay(day)) {
                 dateEntry = createCalendarDateEntry(day, 'chosen '.concat(concatClassName));
+            } else if (isToday(day)) {
+                dateEntry = createCalendarDateEntry(day, 'today '.concat(concatClassName));
             };
             return dateEntry;
         }
@@ -169,8 +170,6 @@ const calendar = function() {
         nameClass = className;
         const getChosenDate = function(day) {
             chosenDate = new Date(calendarYear, calendarMonth, day);
-            const journal = document.getElementsByClassName('journal')[0];
-            console.log(journal)
         };
         const handleSubmit = function(event) {
             event.preventDefault();
@@ -191,6 +190,7 @@ const calendar = function() {
         calendarSection.innerHTML = calendarDisplay;
         const calendar = document.getElementsByClassName('calendarDisplay')[0];
         calendar.onsubmit = (event) => handleSubmit(event);
+        calendar.insertAdjacentHTML("afterend", createJournalPages(''));
         const previousButton = document.getElementsByClassName('previousMonth')[0];
         previousButton.onclick = () => handleCalendarNav(-1);
         const nextButton = document.getElementsByClassName('nextMonth')[0];

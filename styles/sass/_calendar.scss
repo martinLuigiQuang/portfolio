@@ -53,6 +53,9 @@
     button.nextMonth {
         width: auto;
     }
+    button.chosen {
+        background-color: rgba(255, 217, 0, 0.705);
+    }
     button.today {
         background-color: rgba(255, 127, 80, 0.616);
     }
@@ -68,36 +71,38 @@ button.dayInMonth {
     "day day . "
     "crc juno gis"
     "coursera . github";
-    .dayContainer {
-        grid-area: day;
-        display: flex;
+}
+
+.dayContainer {
+    grid-area: day;
+    display: flex;
+}
+
+.symbolContainer {
+    &--gis, &--crc, &--github, &--juno, &--coursera {
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
-    .symbolContainer {
-        &--gis, &--crc, &--github, &--juno, &--coursera {
-            height: 100%;
-            width: 100%;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-        &--gis {
-            grid-area: gis;
-            background-image: url(../../assets/gisIcon.png);
-        }
-        &--crc {
-            grid-area: crc;
-            background-image: url(../../assets/crcSymbol.png);
-        }
-        &--github {
-            grid-area: github;
-            background-image: url(../../assets/gitHubIcon.png);
-        }
-        &--juno {
-            grid-area: juno;
-            background-image: url(../../assets/junoSymbol.png);
-        }
-        &--coursera {
-            grid-area: coursera;
-            background-image: url(../../assets/courseraIcon.png);
-        }
+    &--gis {
+        grid-area: gis;
+        background-image: url(../../assets/gisIcon.png);
+    }
+    &--crc {
+        grid-area: crc;
+        background-image: url(../../assets/crcSymbol.png);
+    }
+    &--github {
+        grid-area: github;
+        background-image: url(../../assets/gitHubIcon.png);
+    }
+    &--juno {
+        grid-area: juno;
+        background-image: url(../../assets/junoSymbol.png);
+    }
+    &--coursera {
+        grid-area: coursera;
+        background-image: url(../../assets/courseraIcon.png);
     }
 }

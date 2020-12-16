@@ -1,20 +1,33 @@
 .calendar {
     display: flex;
+    justify-content: flex-start;
     justify-content: center;
     align-items: center;
+    opacity: 0.9;
 }
 
 .calendarDisplay {
+    width: calc(100% - 300px);
     display: grid;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
+    position: relative;
     .calendarNav {
-        grid-column: 1 / span 7;
+        border-radius: 5px;
+        background-color: coral;
         display: grid;
         grid-template-columns: 50px 200px 50px;
         align-items: center;
+        height: 50px;
+        width: 100%;
+        position: absolute;
+        top: -50px;
         button {
             border: none;
+            background-color: coral;
             border-radius: 5px;
         }
     }
@@ -23,8 +36,9 @@
     }
     button.dayInMonth {
         width: 100%;
-        height: calc((100vw - 200px) / 7);
-        background-color: white;
+        height: calc((100vw - 500px) / 7);
+        max-height: calc(780px / 7);
+        background-color: rgba(255, 255, 255, 0.459);
         box-sizing: border-box;
         cursor: pointer;
         border: 2px solid #4E8098;
@@ -32,7 +46,7 @@
         padding: 5px;
     }
     button:hover, button:focus {
-        background-color: #90C2E7;
+        background-color: #90c1e794;
         color: #A31621;
     }
     button.previousMonth,
@@ -40,64 +54,50 @@
         width: auto;
     }
     button.today {
-        background-color: coral;
+        background-color: rgba(255, 127, 80, 0.616);
     }
 }
 
 button.dayInMonth {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(4, 25%);
-    grid-template-rows: repeat(3, 25%);
-    grid-row-gap: 12%;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: repeat(3, 30%);
+    grid-gap: 5%;
     grid-template-areas:
-    "day day . ."
-    "crc juno juno gis"
-    "coursera . . github";
+    "day day . "
+    "crc juno gis"
+    "coursera . github";
     .dayContainer {
         grid-area: day;
         display: flex;
     }
-    
-    a {
-        &.github {
-            grid-area: github;
+    .symbolContainer {
+        &--gis, &--crc, &--github, &--juno, &--coursera {
+            height: 100%;
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
         }
-        &.gis {
+        &--gis {
             grid-area: gis;
+            background-image: url(../../assets/gisIcon.png);
         }
-        &.crc {
+        &--crc {
             grid-area: crc;
+            background-image: url(../../assets/crcSymbol.png);
         }
-        &.juno {
+        &--github {
+            grid-area: github;
+            background-image: url(../../assets/gitHubIcon.png);
+        }
+        &--juno {
             grid-area: juno;
+            background-image: url(../../assets/junoSymbol.png);
         }
-        &.coursera {
+        &--coursera {
             grid-area: coursera;
-        }
-        height: 100%;
-        .symbolContainer {
-            &--gis, &--crc, &--github, &--juno, &--coursera {
-                height: 100%;
-                width: 100%;
-                background-size: contain;
-                background-repeat: no-repeat;
-            }
-            &--gis {
-                background-image: url(../../assets/gisIcon.png);
-            }
-            &--crc {
-                background-image: url(../../assets/crcSymbol.png);
-            }
-            &--github {
-                background-image: url(../../assets/gitHubIcon.png);
-            }
-            &--juno {
-                background-image: url(../../assets/junoSymbol.png);
-            }
-            &--coursera {
-                background-image: url(../../assets/courseraIcon.png);
-            }
+            background-image: url(../../assets/courseraIcon.png);
         }
     }
 }

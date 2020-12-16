@@ -1,0 +1,61 @@
+.journey {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-evenly;
+    background: linear-gradient(90deg, coral, rgb(111, 0, 255));
+    height: 1px;
+    border-radius: 5px;
+    button {
+        align-self: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid rgb(116, 173, 0);
+        background-color: rgb(255, 255, 255);
+        position: relative;
+        cursor: pointer;
+        h3 {
+            position: absolute;
+            width: 200px;
+            left: calc(-85px);
+        }
+        &:nth-child(2n + 1) > h3 {
+            top: -40px;
+        }
+        &:nth-child(2n) > h3 {
+            bottom: -40px;
+        }
+        &:hover, &:focus {
+            background: linear-gradient(45deg, cyan, crimson);
+        }
+        &.focus {
+            background: linear-gradient(45deg, cyan, crimson);
+            &:after {
+                content: '';
+                position: absolute;
+                width: 35px;
+                height: 35px;
+                top: -5px;
+                left: -5px;
+                border: 2px solid black;
+                animation: rotate 4s linear infinite;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -253,12 +253,20 @@ html {
   overflow: hidden;
 }
 
+body {
+  position: relative;
+}
+
 .hidden {
   display: none;
 }
 
 .wrapper {
-  width: calc(100% - 200px);
+  width: calc(100% - 150px);
+  max-width: 1280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 h1 {
@@ -267,8 +275,13 @@ h1 {
   text-transform: uppercase;
 }
 
-h3, label, input, span, button {
+h3, label, input, button {
+  font-family: 'Permanent Marker', cursive;
   font-size: 2.5rem;
+}
+
+span {
+  font-size: 2rem;
 }
 
 ul {
@@ -375,7 +388,16 @@ input#navBar:checked ~ .collapsedMenu:after {
           transform: translateY(-20px) rotateZ(-90deg);
 }
 
-.calendar {
+main {
+  background: url(../../assets/background1.jpg);
+  background-color: lightskyblue;
+  background-blend-mode: overlay;
+  background-position: center;
+  background-size: 200%;
+  padding: 50px 0;
+}
+
+.journey {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -385,20 +407,124 @@ input#navBar:checked ~ .collapsedMenu:after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 200px;
+  margin-bottom: 50px;
+}
+
+.timeline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background: -webkit-gradient(linear, left top, right top, from(coral), to(#6f00ff));
+  background: linear-gradient(90deg, coral, #6f00ff);
+  height: 1px;
+  border-radius: 5px;
+}
+
+.timeline button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #74ad00;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.timeline button h3 {
+  position: absolute;
+  width: 200px;
+  left: calc(-85px);
+}
+
+.timeline button:nth-child(2n + 1) > h3 {
+  top: -40px;
+}
+
+.timeline button:nth-child(2n) > h3 {
+  bottom: -40px;
+}
+
+.timeline button:hover, .timeline button:focus {
+  background: linear-gradient(45deg, cyan, crimson);
+}
+
+.timeline button.focus {
+  background: linear-gradient(45deg, cyan, crimson);
+}
+
+.timeline button.focus:after {
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: -5px;
+  left: -5px;
+  border: 2px solid black;
+  -webkit-animation: rotate 4s linear infinite;
+          animation: rotate 4s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.calendar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0.9;
 }
 
 .calendarDisplay {
+  width: calc(100% - 300px);
   display: -ms-grid;
   display: grid;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 10px;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
   gap: 5px;
+  position: relative;
 }
 
 .calendarDisplay .calendarNav {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 7;
-  grid-column: 1 / span 7;
+  border-radius: 5px;
+  background-color: coral;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 50px 200px 50px;
@@ -406,10 +532,15 @@ input#navBar:checked ~ .collapsedMenu:after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  top: -50px;
 }
 
 .calendarDisplay .calendarNav button {
   border: none;
+  background-color: coral;
   border-radius: 5px;
 }
 
@@ -419,8 +550,9 @@ input#navBar:checked ~ .collapsedMenu:after {
 
 .calendarDisplay button.dayInMonth {
   width: 100%;
-  height: calc((100vw - 200px) / 7);
-  background-color: white;
+  height: calc((100vw - 500px) / 7);
+  max-height: calc(780px / 7);
+  background-color: rgba(255, 255, 255, 0.459);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   cursor: pointer;
@@ -430,7 +562,7 @@ input#navBar:checked ~ .collapsedMenu:after {
 }
 
 .calendarDisplay button:hover, .calendarDisplay button:focus {
-  background-color: #90C2E7;
+  background-color: #90c1e794;
   color: #A31621;
 }
 
@@ -440,7 +572,7 @@ input#navBar:checked ~ .collapsedMenu:after {
 }
 
 .calendarDisplay button.today {
-  background-color: coral;
+  background-color: rgba(255, 127, 80, 0.616);
 }
 
 button.dayInMonth {
@@ -449,12 +581,12 @@ button.dayInMonth {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-grid-columns: (25%)[4];
-      grid-template-columns: repeat(4, 25%);
-  -ms-grid-rows: (25%)[3];
-      grid-template-rows: repeat(3, 25%);
-  grid-row-gap: 12%;
-      grid-template-areas: "day day . ." "crc juno juno gis" "coursera . . github";
+  -ms-grid-columns: (30%)[3];
+      grid-template-columns: repeat(3, 30%);
+  -ms-grid-rows: (30%)[3];
+      grid-template-rows: repeat(3, 30%);
+  grid-gap: 5%;
+      grid-template-areas: "day day . " "crc juno gis" "coursera . github";
 }
 
 button.dayInMonth .dayContainer {
@@ -467,65 +599,45 @@ button.dayInMonth .dayContainer {
   display: flex;
 }
 
-button.dayInMonth a {
-  height: 100%;
-}
-
-button.dayInMonth a.github {
-  -ms-grid-row: 3;
-  -ms-grid-column: 4;
-  grid-area: github;
-}
-
-button.dayInMonth a.gis {
-  -ms-grid-row: 2;
-  -ms-grid-column: 4;
-  grid-area: gis;
-}
-
-button.dayInMonth a.crc {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: crc;
-}
-
-button.dayInMonth a.juno {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-area: juno;
-}
-
-button.dayInMonth a.coursera {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: coursera;
-}
-
-button.dayInMonth a .symbolContainer--gis, button.dayInMonth a .symbolContainer--crc, button.dayInMonth a .symbolContainer--github, button.dayInMonth a .symbolContainer--juno, button.dayInMonth a .symbolContainer--coursera {
+button.dayInMonth .symbolContainer--gis, button.dayInMonth .symbolContainer--crc, button.dayInMonth .symbolContainer--github, button.dayInMonth .symbolContainer--juno, button.dayInMonth .symbolContainer--coursera {
   height: 100%;
   width: 100%;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-button.dayInMonth a .symbolContainer--gis {
+button.dayInMonth .symbolContainer--gis {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: gis;
   background-image: url(../../assets/gisIcon.png);
 }
 
-button.dayInMonth a .symbolContainer--crc {
+button.dayInMonth .symbolContainer--crc {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: crc;
   background-image: url(../../assets/crcSymbol.png);
 }
 
-button.dayInMonth a .symbolContainer--github {
+button.dayInMonth .symbolContainer--github {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: github;
   background-image: url(../../assets/gitHubIcon.png);
 }
 
-button.dayInMonth a .symbolContainer--juno {
+button.dayInMonth .symbolContainer--juno {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: juno;
   background-image: url(../../assets/junoSymbol.png);
 }
 
-button.dayInMonth a .symbolContainer--coursera {
+button.dayInMonth .symbolContainer--coursera {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: coursera;
   background-image: url(../../assets/courseraIcon.png);
 }
 

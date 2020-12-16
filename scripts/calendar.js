@@ -46,7 +46,7 @@ const calendar = function() {
     const createCalendarDisplay = function(dates) {
         const filledCalendar = fillCalendar();
         const displayDaysInAWeek = function(weekday) {
-            return `<h3>${weekday}</h3>`;
+            return `<h3>${weekday.slice(0,3)}</h3>`;
         };
         const createCalendarDateEntry = function(day, className) {
             return `
@@ -60,27 +60,27 @@ const calendar = function() {
                                 </div>
                                 ${
                                     className.includes('gitHub')
-                                        ?   `<a class="github"><div class="symbolContainer--github"></div></a>`
+                                        ?   `<div class="symbolContainer--github"></div>`
                                         :   '' 
                                 }
                                 ${
                                     className.includes('crc')
-                                        ?   `<a class="crc"><div class="symbolContainer--crc"></div></a>`
+                                        ?   `<div class="symbolContainer--crc"></div>`
                                         :   ''
                                 }
                                 ${
                                     className.includes('gis')
-                                        ?   `<a class="gis"><div class="symbolContainer--gis"></div></a>`
+                                        ?   `<div class="symbolContainer--gis"></div>`
                                         :   ''
                                 }
                                 ${
                                     className.includes('juno')
-                                        ?   `<a href="https://junocollege.com/" class="juno"><div class="symbolContainer--juno"></div></a>`
+                                        ?   `<div class="symbolContainer--juno"></div>`
                                         :   ''
                                 }
                                 ${
                                     className.includes('coursera')
-                                        ?   `<a class="coursera"><div class="symbolContainer--coursera"></div></a>`
+                                        ?   `<div class="symbolContainer--coursera"></div>`
                                         :   ''
                                 }
                             </button>`
@@ -97,7 +97,7 @@ const calendar = function() {
                 </div>
             `;
         };
-        const isToday = function(date, day) {
+        const isToday = function(day) {
             return (
                 calendarYear === today.getFullYear() &&
                 calendarMonth === today.getMonth() &&
@@ -128,7 +128,7 @@ const calendar = function() {
         }
         const insertDate = function(day, concatClassName) {
             let dateEntry = createCalendarDateEntry(day, ''.concat(concatClassName));
-            if (isToday(today, day)) {
+            if (isToday(day)) {
                 dateEntry = createCalendarDateEntry(day, 'today '.concat(concatClassName));
             } else if (isChosenDay(day)) {
                 dateEntry = createCalendarDateEntry(day, 'chosen '.concat(concatClassName));
@@ -136,32 +136,34 @@ const calendar = function() {
             return dateEntry;
         }
         return `
-            <form class="calendarDisplay wrapper">
-                ${
-                    createCalendarNav(calendarYear, calendarMonth)
-                }
-                ${
-                    weekdays.map( (weekday) => {
-                        return displayDaysInAWeek(weekday);
-                    }).reduce((acc, cur) => {
-                        return acc + cur;
-                    })
-                }
-                ${
-                    filledCalendar.map( (day) => {
-                        let dateEntry = '';
-                        const { marked, className } = isMarked(dates, day, nameClass);
-                        if (marked) {
-                            dateEntry = insertDate(day, className);
-                        } else {
-                            dateEntry = insertDate(day, '');
-                        }
-                        return dateEntry;
-                    }).reduce((acc, cur) => {
-                        return acc + cur;
-                    })
-                }
-            </form>
+            <div class="wrapper">
+                <form class="calendarDisplay">
+                    ${
+                        createCalendarNav(calendarYear, calendarMonth)
+                    }
+                    ${
+                        weekdays.map( (weekday) => {
+                            return displayDaysInAWeek(weekday);
+                        }).reduce((acc, cur) => {
+                            return acc + cur;
+                        })
+                    }
+                    ${
+                        filledCalendar.map( (day) => {
+                            let dateEntry = '';
+                            const { marked, className } = isMarked(dates, day, nameClass);
+                            if (marked) {
+                                dateEntry = insertDate(day, className);
+                            } else {
+                                dateEntry = insertDate(day, '');
+                            }
+                            return dateEntry;
+                        }).reduce((acc, cur) => {
+                            return acc + cur;
+                        })
+                    }
+                </form>
+            </div>
         `;
     };
 
@@ -184,6 +186,7 @@ const calendar = function() {
                 calendarMonth = 0;
                 calendarYear++;
             };
+            setMilestone();
         }
         const calendarDisplay = createCalendarDisplay(dates);
         calendarSection.innerHTML = calendarDisplay;
@@ -195,8 +198,32 @@ const calendar = function() {
         nextButton.onclick = () => handleCalendarNav(1);
     };
 
+    const getMilestone = function(milestone) {
+        calendarMonth = milestone;
+        calendarYear = 2020;
+        buildCalendar(markedDates, nameClass);
+        return calendarMonth;
+    };
+
+    const setMilestone = function() {
+        const focusedButton = document.getElementsByClassName('milestone focus')[0];
+        if (focusedButton) {
+            focusedButton.classList.remove('focus');
+        };
+        const milestones = [...document.getElementsByClassName('milestone')];
+        milestones.forEach((milestone) => {
+            if (parseInt(milestone.value) === calendarMonth) {
+               milestone.classList.add('focus');
+            }
+        });
+    };
+
     return {
-        buildCalendar: buildCalendar
+        months: monthNames,
+        calendarMonth: calendarMonth,
+        buildCalendar: buildCalendar,
+        getMilestone: getMilestone,
+        setMilestone: setMilestone
     };
 }();
 

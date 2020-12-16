@@ -45,9 +45,6 @@ const calendar = function() {
 
     const createCalendarDisplay = function(dates) {
         const filledCalendar = fillCalendar();
-        const displayDaysInAWeek = function(weekday) {
-            return `<h3>${weekday.slice(0,3)}</h3>`;
-        };
         const createCalendarDateEntry = function(day, className) {
             return `
                 <div class="dayEntry">
@@ -143,7 +140,7 @@ const calendar = function() {
                     }
                     ${
                         weekdays.map( (weekday) => {
-                            return displayDaysInAWeek(weekday);
+                            return `<h3>${weekday.slice(0,3)}</h3>`;
                         }).reduce((acc, cur) => {
                             return acc + cur;
                         })
@@ -172,11 +169,13 @@ const calendar = function() {
         nameClass = className;
         const getChosenDate = function(day) {
             chosenDate = new Date(calendarYear, calendarMonth, day);
-        }
+            const journal = document.getElementsByClassName('journal')[0];
+            console.log(journal)
+        };
         const handleSubmit = function(event) {
             event.preventDefault();
             buildCalendar(markedDates, nameClass);
-        }
+        };
         const handleCalendarNav = function(change) {
             calendarMonth += change;
             if (calendarMonth < 0) {
@@ -187,7 +186,7 @@ const calendar = function() {
                 calendarYear++;
             };
             setMilestone();
-        }
+        };
         const calendarDisplay = createCalendarDisplay(dates);
         calendarSection.innerHTML = calendarDisplay;
         const calendar = document.getElementsByClassName('calendarDisplay')[0];
@@ -196,6 +195,10 @@ const calendar = function() {
         previousButton.onclick = () => handleCalendarNav(-1);
         const nextButton = document.getElementsByClassName('nextMonth')[0];
         nextButton.onclick = () => handleCalendarNav(1);
+        const dateEntries = [...document.getElementsByClassName('dayInMonth')];
+        dateEntries.forEach((entry) => {
+            entry.onclick = () => getChosenDate(entry.value);
+        });
     };
 
     const getMilestone = function(milestone) {
@@ -212,7 +215,7 @@ const calendar = function() {
         };
         const milestones = [...document.getElementsByClassName('milestone')];
         milestones.forEach((milestone) => {
-            if (parseInt(milestone.value) === calendarMonth) {
+            if (parseInt(milestone.value) === calendarMonth && calendarYear === 2020) {
                milestone.classList.add('focus');
             }
         });
@@ -221,9 +224,9 @@ const calendar = function() {
     return {
         months: monthNames,
         calendarMonth: calendarMonth,
+        chosenDate: chosenDate,
         buildCalendar: buildCalendar,
-        getMilestone: getMilestone,
-        setMilestone: setMilestone
+        getMilestone: getMilestone
     };
 }();
 

@@ -4,7 +4,6 @@ const journey = function() {
     const months = calendar.months;
     let calendarMonth = calendar.calendarMonth;
     const getMilestone = calendar.getMilestone;
-    const setMilestone = calendar.setMilestone;
     const journeySection = document.getElementsByClassName('journey')[0];
 
     const buildTimeline = function() {

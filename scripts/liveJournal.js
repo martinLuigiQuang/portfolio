@@ -17,7 +17,6 @@ const liveJournal = function() {
                         :   ''
                 }
                 <div class="activities">
-                    <h3>my activities</h3>
                     ${
                         classList.includes('gitHub')
                             ?   `<div class="symbolContainer--github"></div>`

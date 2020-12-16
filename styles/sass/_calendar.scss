@@ -3,35 +3,47 @@
     justify-content: flex-start;
     justify-content: center;
     align-items: center;
-    opacity: 0.9;
 }
 
 .calendarDisplay {
-    width: calc(100% - 300px);
+    width: calc(100% - 500px);
     display: grid;
-    background-color: whitesmoke;
-    border-radius: 5px;
+    background-color: rgba(245, 245, 245, 0.74);
+    border-radius: 0 0 5px 5px;
     padding: 10px;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
     position: relative;
     .calendarNav {
-        border-radius: 5px;
-        background-color: coral;
+        border-radius: 5px 5px 0 0;
+        background-color: rgba(255, 127, 80, 0.9);
         display: grid;
-        grid-template-columns: 50px 250px 50px;
+        grid-template-columns: 50px 250px 50px calc(100% - 350px);
         align-items: center;
         height: 50px;
         width: 100%;
         position: absolute;
         top: -50px;
+        h3 {
+            font-size: 3rem;
+        }
         button {
+            justify-self: end;
+            margin-right: 20px;
+            width: auto;
             border: none;
-            background-color: coral;
+            background-color: rgba(255, 127, 80, 0);
             border-radius: 5px;
+            i {
+                cursor: pointer;
+            }
+        }
+        button.nextMonth, button.previousMonth {
+            justify-self: stretch;
         }
     }
-    h3 {
+    .weekdays {
+        font-weight: bold;
         text-align: center;
     }
     button.dayInMonth {

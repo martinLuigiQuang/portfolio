@@ -6,8 +6,6 @@
     margin-bottom: 70px;
     h2 {
         display: block;
-        font-family: 'Russo One', sans-serif;
-        text-transform: uppercase;
     }
 }
 
@@ -31,7 +29,7 @@
             position: absolute;
             width: 200px;
             left: calc(-85px);
-            font-size: 2rem;
+            font-weight: bold;
         }
         &:nth-child(2n + 1) > h3 {
             top: -40px;
@@ -40,7 +38,7 @@
             bottom: -40px;
         }
         &:hover, &:focus {
-            background: linear-gradient(45deg, cyan,coral, crimson);
+            background: linear-gradient(45deg, cyan, coral, crimson);
         }
         &.focus {
             background: linear-gradient(45deg, cyan, coral, crimson);

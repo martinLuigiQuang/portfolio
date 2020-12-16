@@ -280,15 +280,19 @@ h1 {
 }
 
 h2 {
-  font-size: 4rem;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
 }
 
 h3, label, input, button {
+  font-family: 'Cinzel', serif;
   font-size: 2.2rem;
+  font-weight: 400;
 }
 
 span {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 ul {
@@ -299,7 +303,7 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   color: #272727;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 p {
@@ -432,8 +436,6 @@ main:before {
 
 .journey h2 {
   display: block;
-  font-family: 'Russo One', sans-serif;
-  text-transform: uppercase;
 }
 
 .timeline {
@@ -469,7 +471,7 @@ main:before {
   position: absolute;
   width: 200px;
   left: calc(-85px);
-  font-size: 2rem;
+  font-weight: bold;
 }
 
 .timeline button:nth-child(2n + 1) > h3 {
@@ -535,15 +537,14 @@ main:before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  opacity: 0.9;
 }
 
 .calendarDisplay {
-  width: calc(100% - 300px);
+  width: calc(100% - 500px);
   display: -ms-grid;
   display: grid;
-  background-color: whitesmoke;
-  border-radius: 5px;
+  background-color: rgba(245, 245, 245, 0.74);
+  border-radius: 0 0 5px 5px;
   padding: 10px;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
@@ -552,12 +553,12 @@ main:before {
 }
 
 .calendarDisplay .calendarNav {
-  border-radius: 5px;
-  background-color: coral;
+  border-radius: 5px 5px 0 0;
+  background-color: rgba(255, 127, 80, 0.9);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 50px 250px 50px;
-      grid-template-columns: 50px 250px 50px;
+  -ms-grid-columns: 50px 250px 50px calc(100% - 350px);
+      grid-template-columns: 50px 250px 50px calc(100% - 350px);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -567,13 +568,31 @@ main:before {
   top: -50px;
 }
 
+.calendarDisplay .calendarNav h3 {
+  font-size: 3rem;
+}
+
 .calendarDisplay .calendarNav button {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin-right: 20px;
+  width: auto;
   border: none;
-  background-color: coral;
+  background-color: rgba(255, 127, 80, 0);
   border-radius: 5px;
 }
 
-.calendarDisplay h3 {
+.calendarDisplay .calendarNav button i {
+  cursor: pointer;
+}
+
+.calendarDisplay .calendarNav button.nextMonth, .calendarDisplay .calendarNav button.previousMonth {
+  -ms-grid-column-align: stretch;
+      justify-self: stretch;
+}
+
+.calendarDisplay .weekdays {
+  font-weight: bold;
   text-align: center;
 }
 
@@ -691,7 +710,8 @@ button.dayInMonth {
   display: block;
   position: absolute;
   top: 220px;
-  font-family: 'Bungee Outline', cursive;
+  font-family: 'Mrs Saint Delafield', cursive;
+  font-size: 7rem;
 }
 
 .journal .activities {

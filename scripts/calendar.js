@@ -6,6 +6,7 @@ const calendar = function() {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const calendarSection = document.getElementsByClassName('calendar')[0];
     const today = new Date();
+    let minimized = ''; // class name to toggle calendar between normal and minimized
     let chosenDate = today;
     let calendarMonth = today.getMonth();
     let calendarYear = today.getFullYear();
@@ -91,9 +92,10 @@ const calendar = function() {
         const createCalendarNav = function(year, month) {
             return `
                 <div class="calendarNav">
-                    <button class="previousMonth"><</button>
+                    <button class="previousMonth"><i class="fas fa-chevron-left"></i></button>
                     <h3>${monthNames[month]} ${year}</h3>
-                    <button class="nextMonth">></button>
+                    <button class="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                    <button class="collapseButton"><i class="far fa-minus-square"></i></button>
                 </div>
             `;
         };
@@ -141,7 +143,7 @@ const calendar = function() {
                     }
                     ${
                         weekdays.map( (weekday) => {
-                            return `<h3>${weekday.slice(0,3)}</h3>`;
+                            return `<h3 class="weekdays">${weekday.slice(0,3)}</h3>`;
                         }).reduce((acc, cur) => {
                             return acc + cur;
                         })
@@ -186,15 +188,28 @@ const calendar = function() {
             };
             setMilestone();
         };
+        const handleCollapseButton = function() {
+            if (minimized) {
+                minimized = '';
+            } else {
+                minimized = 'minimized';
+            };
+            console.log(minimized)
+        }
         const calendarDisplay = createCalendarDisplay(dates);
         calendarSection.innerHTML = calendarDisplay;
-        const calendar = document.getElementsByClassName('calendarDisplay')[0];
+        let calendar = document.getElementsByClassName('calendarDisplay')[0];
         calendar.onsubmit = (event) => handleSubmit(event);
         calendar.insertAdjacentHTML("afterend", createJournalPages(''));
+        if (minimized) {
+            calendar.classList.add(minimized)
+        };
         const previousButton = document.getElementsByClassName('previousMonth')[0];
         previousButton.onclick = () => handleCalendarNav(-1);
         const nextButton = document.getElementsByClassName('nextMonth')[0];
         nextButton.onclick = () => handleCalendarNav(1);
+        const collapseButton = document.getElementsByClassName('collapseButton')[0];
+        collapseButton.onclick = () => handleCollapseButton();
         const dateEntries = [...document.getElementsByClassName('dayInMonth')];
         dateEntries.forEach((entry) => {
             entry.onclick = () => getChosenDate(entry.value);

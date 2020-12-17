@@ -1,12 +1,15 @@
+import projects from './projects.js';
 import liveJournal from './liveJournal.js';
 
 const calendar = function() {
     const createJournalPages = liveJournal.createJournalPages;
+    const createMyStory = liveJournal.createMyStory;
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const calendarSection = document.getElementsByClassName('calendar')[0];
     const today = new Date();
-    let minimized = ''; // class name to toggle calendar between normal and minimized
+    let indexOfDisplayedPhoto = 0;
+    let calendarSection = document.getElementsByClassName('calendar')[0];
+    let minimized = 'minimized'; // class name to toggle calendar between normal and minimized
     let chosenDate = today;
     let calendarMonth = today.getMonth();
     let calendarYear = today.getFullYear();
@@ -136,14 +139,18 @@ const calendar = function() {
             return dateEntry;
         }
         return `
-            <div class="wrapper">
+            <div class="calendarContainer wrapper">
                 <form class="calendarDisplay">
                     ${
                         createCalendarNav(calendarYear, calendarMonth)
                     }
                     ${
                         weekdays.map( (weekday) => {
-                            return `<h3 class="weekdays">${weekday.slice(0,3)}</h3>`;
+                            return (
+                                minimized
+                                    ?   `<h3 class="weekdays">${weekday.slice(0,1)}</h3>`
+                                    :   `<h3 class="weekdays">${weekday.slice(0,3)}</h3>`
+                            );
                         }).reduce((acc, cur) => {
                             return acc + cur;
                         })
@@ -167,9 +174,27 @@ const calendar = function() {
         `;
     };
 
+    const displayMyStory = function(myStory) {
+        const handlePhotoNav = function(change) {
+            indexOfDisplayedPhoto += change;
+            if (indexOfDisplayedPhoto < 0) {
+                indexOfDisplayedPhoto = projects.length;
+            } else if (indexOfDisplayedPhoto > projects.length - 1) {
+                indexOfDisplayedPhoto = 0;
+            };
+            displayMyStory(myStory);
+        };
+        myStory.innerHTML = createMyStory(projects[0]);
+        const nextPhoto = calendarSection.getElementsByClassName('nextPhoto')[0];
+        nextPhoto.onclick = () => handlePhotoNav(1);
+        const previousPhoto = calendarSection.getElementsByClassName('previousPhoto')[0];
+        previousPhoto.onclick = () => handlePhotoNav(-1);
+    }
+
     const buildCalendar = function(dates, className) {
         markedDates = dates;
         nameClass = className;
+        
         const getChosenDate = function(day) {
             chosenDate = new Date(calendarYear, calendarMonth, day);
         };
@@ -194,23 +219,33 @@ const calendar = function() {
             } else {
                 minimized = 'minimized';
             };
-            console.log(minimized)
-        }
+        };
         const calendarDisplay = createCalendarDisplay(dates);
         calendarSection.innerHTML = calendarDisplay;
-        let calendar = document.getElementsByClassName('calendarDisplay')[0];
-        calendar.onsubmit = (event) => handleSubmit(event);
-        calendar.insertAdjacentHTML("afterend", createJournalPages(''));
+
+        let calendarWrapper = calendarSection.getElementsByClassName('wrapper')[0];
         if (minimized) {
-            calendar.classList.add(minimized)
+            calendarWrapper.classList.add(minimized);
         };
-        const previousButton = document.getElementsByClassName('previousMonth')[0];
+
+        const calendar = calendarSection.getElementsByClassName('calendarDisplay')[0];
+        calendar.onsubmit = (event) => handleSubmit(event);
+        calendar.insertAdjacentHTML('afterend', createJournalPages());
+
+        const journalPage = calendarSection.getElementsByClassName('journal')[0];
+        journalPage.insertAdjacentHTML('afterend', '<section class="myStory"></section>')
+        displayMyStory(calendarSection.getElementsByClassName('myStory')[0]);
+
+        const previousButton = calendar.getElementsByClassName('previousMonth')[0];
         previousButton.onclick = () => handleCalendarNav(-1);
-        const nextButton = document.getElementsByClassName('nextMonth')[0];
+        
+        const nextButton = calendar.getElementsByClassName('nextMonth')[0];
         nextButton.onclick = () => handleCalendarNav(1);
-        const collapseButton = document.getElementsByClassName('collapseButton')[0];
+        
+        const collapseButton = calendar.getElementsByClassName('collapseButton')[0];
         collapseButton.onclick = () => handleCollapseButton();
-        const dateEntries = [...document.getElementsByClassName('dayInMonth')];
+        
+        const dateEntries = [...calendar.getElementsByClassName('dayInMonth')];
         dateEntries.forEach((entry) => {
             entry.onclick = () => getChosenDate(entry.value);
         });

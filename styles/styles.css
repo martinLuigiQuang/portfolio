@@ -264,13 +264,6 @@ body {
 .wrapper {
   width: calc(100% - 150px);
   max-width: 1280px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  gap: 20px;
 }
 
 h1 {
@@ -312,7 +305,7 @@ p {
 
 header {
   width: 100%;
-  background-color: aquamarine;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -323,6 +316,26 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+}
+
+h1 {
+  position: absolute;
+}
+
+.brainPictureContainer, .burstOfColours {
+  width: 50%;
+  height: 100vh;
+}
+
+.brainPictureContainer {
+  background-color: whitesmoke;
+}
+
+.burstOfColours {
+  background: url(../../assets/burstOfColours.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
 }
 
 nav {
@@ -404,7 +417,8 @@ main {
   background-color: lightskyblue;
   background-blend-mode: overlay;
   background-position: center;
-  background-size: 200%;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 50px 0;
   position: relative;
   z-index: 0;
@@ -534,15 +548,28 @@ main:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  height: 750px;
+}
+
+.calendarContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
 }
 
 .calendarDisplay {
   width: calc(100% - 500px);
+  min-width: 400px;
   display: -ms-grid;
   display: grid;
+  -ms-flex-line-pack: start;
+      align-content: start;
   background-color: rgba(245, 245, 245, 0.74);
   border-radius: 0 0 5px 5px;
   padding: 10px;
@@ -570,6 +597,7 @@ main:before {
 
 .calendarDisplay .calendarNav h3 {
   font-size: 3rem;
+  text-align: center;
 }
 
 .calendarDisplay .calendarNav button {
@@ -693,10 +721,35 @@ button.dayInMonth {
   background-image: url(../../assets/courseraIcon.png);
 }
 
+.minimized .calendarDisplay {
+  width: calc(100% - 800px);
+  height: calc(100% - 800px);
+  background: none;
+}
+
+.minimized .calendarDisplay .symbolContainer--gis, .minimized .calendarDisplay .symbolContainer--github, .minimized .calendarDisplay .symbolContainer--juno, .minimized .calendarDisplay .symbolContainer--coursera, .minimized .calendarDisplay .symbolContainer--crc {
+  display: none;
+}
+
+.minimized .calendarDisplay button.dayInMonth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  border: none;
+}
+
+.minimized .myStory {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .journal {
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+      -ms-flex: 1 0 30%;
+          flex: 1 0 30%;
+  min-height: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -709,9 +762,9 @@ button.dayInMonth {
 .journal h2 {
   display: block;
   position: absolute;
-  top: 220px;
+  top: 210px;
   font-family: 'Mrs Saint Delafield', cursive;
-  font-size: 7rem;
+  font-size: 8rem;
 }
 
 .journal .activities {
@@ -728,7 +781,7 @@ button.dayInMonth {
           justify-content: space-between;
   padding: 10px;
   gap: 10px;
-  background-color: rgba(245, 245, 245, 0.658);
+  background-color: rgba(245, 245, 245, 0.65);
 }
 
 .journal .activities .symbolContainer--gis, .journal .activities .symbolContainer--crc, .journal .activities .symbolContainer--github, .journal .activities .symbolContainer--juno, .journal .activities .symbolContainer--coursera {
@@ -737,6 +790,150 @@ button.dayInMonth {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.myStory {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 80%;
+          flex: 1 0 80%;
+  max-height: 350px;
+  display: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  position: relative;
+  background-color: rgba(245, 245, 245, 0.85);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.myStory h2 {
+  position: absolute;
+  top: -70px;
+  z-index: 1;
+  width: 100%;
+  font-family: 'Mrs Saint Delafield', cursive;
+  font-size: 10rem;
+  padding-left: 70px;
+}
+
+.myStory .photosContainer {
+  width: 320px;
+  height: 100%;
+  background-color: yellow;
+  position: relative;
+  padding: 10px;
+}
+
+.myStory .content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 70%;
+          flex: 1 0 70%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.myStory .content h3 {
+  font-size: 4rem;
+}
+
+.myStory .content h4 {
+  font-size: 3rem;
+}
+
+.myStory .content p {
+  font-size: 2.2rem;
+}
+
+.photoDisplayNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 300px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  bottom: 10px;
+}
+
+.photoDisplayNav button {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(41, 41, 41, 0.438);
+  border-radius: 5px;
+  border: none;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.photoDisplayNav button:hover, .photoDisplayNav button:focus {
+  background-color: rgba(41, 41, 41, 0.664);
+}
+
+.projects {
+  margin: 100px 0;
+}
+
+.projects, .projectContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.projectContainer {
+  width: 100%;
+}
+
+.projectContainer .individualProject {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.projectContainer .individualProject .projectImageContainer {
+  width: 25%;
+  height: 200px;
+  background-color: yellow;
+}
+
+.projectContainer .individualProject .projectDescription {
+  width: 70%;
+}
+
+.projectContainer .individualProject:nth-child(2n + 1) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.projectContainer .individualProject:nth-child(2n + 1) .projectDescription {
+  text-align: right;
 }
 
 main {

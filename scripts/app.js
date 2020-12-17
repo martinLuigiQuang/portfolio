@@ -1,12 +1,15 @@
 import apiCall from './apiCall.js';
 import journey from './journey.js';
+import projectDisplay from './projectDisplay.js';
 
 const app = {
     buildCalendar: apiCall.init,
     buildTimeline: journey.init,
+    buildProjectDisplay: projectDisplay.init,
     init: function() {
         this.buildCalendar();
         this.buildTimeline();
+        this.buildProjectDisplay();
     }
 };
 

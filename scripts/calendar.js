@@ -248,6 +248,7 @@ const calendar = function() {
         const dateEntries = [...calendar.getElementsByClassName('dayInMonth')];
         dateEntries.forEach((entry) => {
             entry.onclick = () => getChosenDate(entry.value);
+            entry.onmouseover = () => handleMouseOver(counter);
         });
     };
 

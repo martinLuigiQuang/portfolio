@@ -3,10 +3,11 @@
     min-height: 250px;
     display: flex;
     flex-direction: column;
+    position: relative;
     h2 {
         display: block;
         position: absolute;
-        top: 210px;
+        top: -65px;
         font-family: 'Mrs Saint Delafield', cursive;
         font-size: 8rem;
     }

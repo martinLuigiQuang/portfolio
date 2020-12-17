@@ -1,0 +1,56 @@
+.about {
+    background-color: cornflowerblue;
+    padding: 50px 0;
+    height: 100vh;
+}
+
+.about, .aboutMeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutMeContainer {
+    width: 50%;
+    max-width: 600px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.main {
+    &--profilePic {
+        position: relative;
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+    &--bio {
+        background-color: whitesmoke;
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.alternate {
+    &--profilePic {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+    }
+    &--bio {
+        background-color: whitesmoke;
+        padding: 20px;
+        border-radius: 5px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+

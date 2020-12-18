@@ -245,6 +245,7 @@ const calendar = function() {
 
     const setMilestone = function() {
         const focusedButton = document.getElementsByClassName('milestone focus')[0];
+        console.log(focusedButton)
         if (focusedButton) {
             focusedButton.classList.remove('focus');
         };

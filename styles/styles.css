@@ -464,6 +464,10 @@ input#menu:checked ~ nav {
   width: 60%;
 }
 
+.main--bio p {
+  font-size: 2.5rem;
+}
+
 .alternate--profilePic {
   width: 50%;
   height: 50%;

@@ -3,7 +3,7 @@ import markedDates from './markedDates.js';
 
 const apiCall = function() {
     const buildCalendar = calendar.buildCalendar;
-    const getGitProjects = calendar.getGitProjectNames;
+    const getGitProjects = calendar.getGitProjects;
     const dates = markedDates.dates;
     const classNames = markedDates.classNames;
     const url = 'https://api.github.com/users/martinLuigiQuang/repos';
@@ -13,7 +13,7 @@ const apiCall = function() {
             const response = await promise.json();
             const projects = response.map((project) => {
                 return ([
-                    project.fullname.slice(17, -1).concat(project.fullname.slice(-1)),
+                    project.full_name.slice(17, -1).concat(project.full_name.slice(-1)),
                     new Date(project.created_at),
                     new Date(project.pushed_at)
                 ]);

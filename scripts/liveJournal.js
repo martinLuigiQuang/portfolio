@@ -7,6 +7,22 @@ const liveJournal = function() {
         if (chosenDateEntry) {
             classList = chosenDateEntry.classList.toString();
         };
+        const checkDate = function(projectDate) {
+            return (
+                projectDate.getFullYear() === date.getFullYear() &&
+                projectDate.getMonth() === date.getMonth() &&
+                projectDate.getDate() === date.getDate() 
+            );
+        };
+        const getProject = function() {
+            return gitProjects.filter((project) => {
+                const startDate = project[1];
+                const endDate = project[2];
+                return checkDate(startDate) || checkDate(endDate);
+            });
+        };
+        const project = getProject();
+        const projectName = project[0];
         return `
             <section class="journal">
                 <div class="activities">
@@ -15,7 +31,15 @@ const liveJournal = function() {
                     <h3>my activities</h3>
                     ${
                         classList.includes('gitHub')
-                            ?   `<div class="symbolContainer--github"></div>`
+                            ?   classList.includes('Start')
+                                ?   `<div class="symbolContainer">
+                                        <div class="symbolContainer--github start"></div>
+                                        <p>Started project ${projectName[0]}</p>
+                                    </div>`
+                                : `<div class="symbolContainer">
+                                        <div class="symbolContainer--github"></div>
+                                        <p>Finished project ${projectName[0]}</p>
+                                    </div>`
                             :   '' 
                     }
                     ${

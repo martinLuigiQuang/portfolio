@@ -214,7 +214,7 @@ const calendar = function() {
 
         const calendar = calendarSection.getElementsByClassName('calendarDisplay')[0];
         calendar.onsubmit = (event) => handleSubmit(event);
-        calendar.insertAdjacentHTML('afterend', createJournalPages(story, chosenDate));
+        calendar.insertAdjacentHTML('afterend', createJournalPages(story, chosenDate, projects));
 
         const previousButton = calendar.getElementsByClassName('previousMonth')[0];
         previousButton.onclick = () => handleCalendarNav(-1);
@@ -240,7 +240,7 @@ const calendar = function() {
     };
 
     const getGitProjects = function(apiResponse) {
-        projects = apiResponse;        
+        projects = apiResponse;       
     };
 
     const setMilestone = function() {
@@ -273,7 +273,7 @@ const calendar = function() {
         chosenDate: chosenDate,
         buildCalendar: buildCalendar,
         getMilestone: getMilestone,
-        getGitProjectNames: getGitProjectNames
+        getGitProjects: getGitProjects
     };
 }();
 

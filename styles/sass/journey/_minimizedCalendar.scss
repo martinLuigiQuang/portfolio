@@ -14,6 +14,14 @@
             border: none;
         }
     }
+    .journal .activities {
+        flex-direction: column;
+        .symbolContainer {
+            p {
+                display: inline;
+            }
+        }
+    }
     .skills {
         ul {
             grid-template-columns: repeat(4, 20%);

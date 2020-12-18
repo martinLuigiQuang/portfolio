@@ -4,6 +4,7 @@
     align-items: center;
     padding: 50px 0;
     background-color: whitesmoke;
+    
 }
 
 .contactContainer {
@@ -20,6 +21,36 @@
     }
 }
 
+.myContact {
+    display: flex;
+    flex-direction: column;
+    p {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 2.5rem;
+        i {
+            font-size: 4rem;
+            color: #0f2edd;
+        }
+    }
+    .links {
+        display: flex;
+        align-items: center;
+        a {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            i {
+                font-size: 5rem;
+            }
+        }
+        img {
+            height: 100%;
+        }
+    }
+}
+
 form {
     display: flex;
     flex-wrap: wrap;
@@ -27,10 +58,14 @@ form {
     input {
         flex-grow: 1;
         width: 40%;
-        font-size: 2rem;
+        font-size: 2.5rem;
+        padding: 0 10px;
+        font-family: auto;
     }
     textarea {
+        font-family: auto;
         width: 100%;
-        font-size: 2rem;
+        font-size: 2.5rem;
+        padding: 10px;
     }
 }

@@ -13,14 +13,19 @@ const projectDisplay = function() {
                             <div class="individualProject project--${index}">
                                 <div class="projectImageContainer">
                                     <img src="../../${project.imgFile}" alt="Cover picture for project ${project.name}"/>
-                                </div>
+                                </div> <!-- closing projectImageContainer -->
                                 <div class="projectDescription">
                                     <h3>Project: ${project.name}</h3>
-                                    <p>${project.technologies}</p>
-                                    <p>Description: ${project.description}</p>
-                                    <p>Features: ${project.features}</p>
-                                    <p>Deadline: ${project.deadline}</p>
-                                </div>
+                                    <div class="descriptions">
+                                        <h4>${project.technologies}</h4>
+                                        <p><b>Description</b>: ${project.description}. <strong><em>Special features</em></strong>: ${project.features}</p>
+                                        <p><b>Deadline</b>: ${project.deadline}</p>
+                                    </div> <!-- descriptions -->
+                                    <div class="links">
+                                        <a href="">live link</a>
+                                        <a href="">github repo</a>
+                                    </div> <!-- closing links -->
+                                </div> <!-- closing projectDescription -->
                             </div>
                         `;       
                     })

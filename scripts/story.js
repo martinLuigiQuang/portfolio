@@ -20,7 +20,7 @@ const bootcamp = {
 
 const afterBootcamp = {
     milestone: new Date(2020, 11, 18),
-    story: '<p>It was hard juggling a full-time course and a full-time job plus volunteering every Thursday. Looking back now, all those late nights were worth it. The journey forward is long, but not everyone could claim being able to support First Nation communities affected by Covid, while writing an online application for their mother to monitor her heart. Thank you Juno and CRC for making those happen.</p> <h3>MY GOALS:</h3> <ol> <li>Continue to update the heart monitor application that I wrote for my mother.</li> <li>Start on Project HALEY 9000 - an AI that plays tic-tac-toe following the minimax algorithm with an aethetic design mirroring that of HAL 9000 from 2001: A Space Odyssey.</li> <li>And, of course, kickstart my career in tech</li> </ol>'
+    story: '<p>It was hard juggling a full-time course and a full-time job plus volunteering every Thursday. Looking back now, all those late nights were worth it. The journey forward is long, but not everyone could claim being able to support First Nation communities affected by Covid, while writing an online application for their mother to monitor her heart. Thank you Juno and CRC for making those happen.</p> <!--<h3>MY GOALS:</h3> <ol> <li>Continue to update the heart monitor application that I wrote for my mother.</li> <li>Start on Project HALEY 9000 - an AI that plays tic-tac-toe following the minimax algorithm with an aethetic design mirroring that of HAL 9000 from 2001: A Space Odyssey.</li> <li>And, of course, kickstart my career in tech</li> </ol>-->'
 };
 
 const future = {

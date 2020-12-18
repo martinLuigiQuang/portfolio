@@ -307,112 +307,96 @@ p {
 header {
   width: 100%;
   height: 100vh;
-  max-height: 1000px;
   min-height: 800px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background: url(../../../assets/headerBackground.jpg);
+  background-size: cover;
+  background-position: 80% 30%;
+  background-color: rgba(80, 255, 188, 0.212);
+  background-blend-mode: overlay;
+}
+
+.headerContainer {
   position: relative;
 }
 
-h1 {
+.brand {
   position: absolute;
+  bottom: 30%;
+  right: 0;
 }
 
-.brainPictureContainer, .burstOfColours {
-  width: 50%;
-  height: 100%;
+h1 {
+  color: whitesmoke;
+  font-size: 6rem;
 }
 
-.brainPictureContainer {
+h2 {
+  color: #1a1a1a;
+}
+
+.menu {
+  width: 80px;
+  height: 50px;
   background-color: whitesmoke;
-}
-
-.burstOfColours {
-  background: url(../../assets/burstOfColours.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left;
+  border-radius: 0 0 5px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
 
 nav {
   position: absolute;
-  top: 10px;
+  top: 20px;
+  left: 100px;
+  width: 320px;
+  -webkit-transform: translateY(-110%);
+          transform: translateY(-110%);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
 ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 20px;
 }
 
-label[for="navBar"],
-input#navBar,
-.collapsedMenu {
+input#menu {
   position: absolute;
-  top: 10px;
-  right: 20px;
-  height: 40px;
-  width: 40px;
-}
-
-input#navBar {
+  height: 80px;
+  width: 80px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  cursor: pointer;
   z-index: 1;
 }
 
-.collapsedMenu {
-  top: 17px;
-  height: 4px;
-  background-color: #272727;
-  border-radius: 2px;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-}
-
-.collapsedMenu:before, .collapsedMenu:after {
-  content: '';
-  height: 4px;
-  width: 40px;
-  background-color: #272727;
-  position: absolute;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-}
-
-.collapsedMenu:before {
-  top: 10px;
-}
-
-.collapsedMenu:after {
-  top: 20px;
-}
-
-input#navBar:checked ~ .collapsedMenu {
-  -webkit-transform: translateY(10px) rotateZ(45deg);
-          transform: translateY(10px) rotateZ(45deg);
-}
-
-input#navBar:checked ~ .collapsedMenu:before {
-  display: none;
-}
-
-input#navBar:checked ~ .collapsedMenu:after {
-  -webkit-transform: translateY(-20px) rotateZ(-90deg);
-          transform: translateY(-20px) rotateZ(-90deg);
+input#menu:checked ~ nav {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .about, .alterEgo {
@@ -513,7 +497,7 @@ main:before {
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255, 127, 80, 0.5), rgba(0, 255, 255, 0.418));
+  background: linear-gradient(135deg, #ffb195, #53ffff);
 }
 
 .journey {
@@ -727,11 +711,11 @@ main:before {
 }
 
 .calendarDisplay button.chosen {
-  background-color: rgba(255, 217, 0, 0.705);
+  background-color: rgba(255, 217, 0, 0.808);
 }
 
 .calendarDisplay button.today {
-  background-color: rgba(255, 127, 80, 0.616);
+  background-color: rgba(255, 127, 80, 0.828);
 }
 
 button.dayInMonth {
@@ -1145,6 +1129,7 @@ button.dayInMonth {
       -ms-flex-align: center;
           align-items: center;
   padding: 50px 0;
+  background-color: lightcoral;
 }
 
 .contactContainer {

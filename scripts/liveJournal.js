@@ -1,5 +1,7 @@
 const liveJournal = function() {
-    const createJournalPages = function() {
+    const createJournalPages = function(entry, date, projects) {
+        const { story } = entry;
+        const gitProjects = projects; 
         const chosenDateEntry = document.getElementsByClassName('dayInMonth chosen')[0];
         let classList = '';
         if (chosenDateEntry) {
@@ -9,7 +11,8 @@ const liveJournal = function() {
             <section class="journal">
                 <div class="activities">
                     <h2>live journal</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    ${ story }
+                    <h3>my activities</h3>
                     ${
                         classList.includes('gitHub')
                             ?   `<div class="symbolContainer--github"></div>`
@@ -17,22 +20,41 @@ const liveJournal = function() {
                     }
                     ${
                         classList.includes('juno')
-                            ?   `<div class="symbolContainer--juno"></div>`
+                            ?   date.getMonth() === 5
+                                ?   `<div class="symbolContainer">
+                                        <div class="symbolContainer--juno"></div>
+                                        <p>Attending accelerated JavaScript course at Juno College of Technology</p>
+                                    </div> <!== closing juno -->`
+                                :   date.getMonth() >= 9 && date.getMonth() <= 11  
+                                ?   `<div class="symbolContainer">
+                                        <div class="symbolContainer--juno"></div>
+                                        <p>Attending immersive web development bootcamp at Juno College of Technology</p>
+                                    </div> <!-- closing juno -->`
+                                :   ''
                             :   ''
                     }
                     ${
                         classList.includes('crc')
-                            ?   `<div class="symbolContainer--crc"></div>`
+                            ?   `<div class="symbolContainer">
+                                    <div class="symbolContainer--crc"></div>
+                                    <p>Aiding Canadian Red Cross response to COVID-19 pandemic and natural and personal disasters</p>
+                                </div> <!-- closing crc -->`
                             :   ''
                     }
                     ${
                         classList.includes('coursera')
-                            ?   `<div class="symbolContainer--coursera"></div>`
+                            ?   `<div class="symbolContainer">
+                                    <div class="symbolContainer--coursera"></div>
+                                    <p>Learning computational algorithms and their implemenations in Java</p>
+                                </div> <!-- closing coursera -->`
                             :   ''
                     }
                     ${
                         classList.includes('gis')
-                            ?   `<div class="symbolContainer--gis"></div>`
+                            ?   `<div class="symbolContainer">
+                                <div class="symbolContainer--gis"></div>
+                                    <p>Participating in OpenStreetMap projects around the world as a Canadian Red Cross volunteer</p>
+                                </div> <!-- closing gis -->`
                             :   ''
                     }
                 </div> <!-- closing activities -->

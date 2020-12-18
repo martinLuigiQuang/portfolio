@@ -1,7 +1,7 @@
 nav {
     position: absolute;
-    top: 20px;
-    left: 100px;
+    top: 0;
+    left: 0;
     width: 320px;
     transform: translateY(-110%);
     transition: transform 0.3s;
@@ -11,6 +11,8 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 70px 20px 20px;
+    background-color: rgba(245, 245, 245, 0.815);
 }
 
 input#menu {

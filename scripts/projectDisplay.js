@@ -8,9 +8,9 @@ const projectDisplay = function() {
             <div class="wrapper projectContainer">
                 <h2>featured projects</h2>
                 ${
-                    projects.map((project) => {
+                    projects.map((project, index) => {
                         return `
-                            <div class="individualProject">
+                            <div class="individualProject project--${index}">
                                 <div class="projectImageContainer">
                                     <img src="../../${project.imgFile}" alt="Cover picture for project ${project.name}"/>
                                 </div>

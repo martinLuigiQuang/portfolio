@@ -1,5 +1,6 @@
 .projects {
-    margin: 100px 0;
+    background: linear-gradient(45deg, lightcoral, turquoise);
+    padding: 100px 0;
 }
 
 .projects, .projectContainer {
@@ -12,15 +13,25 @@
 .individualProject {
     width: 100%;
     display: flex;
+    height: 400px;
     gap: 20px;
-    background-color: yellowgreen;
     .projectImageContainer {
-        width: 25%;
-        height: 200px;
-        background-color: yellow;
+        width: 40%;
+        box-shadow: 20px 20px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+        }
     }
     .projectDescription {
-        width: 70%;
+        flex: 1 0 50%;
+        padding: 25px;
+        border-radius: 10px;
+        align-self: center;
+        background-color: rgba(245, 245, 245, 0.609);
     }
     &:nth-child(2n + 1) {
         flex-direction: row-reverse;
@@ -29,3 +40,29 @@
         }
     }
 }
+
+.project {
+    &--0 {
+        .projectImageContainer {
+            background-color: #f6a823;
+            margin-right: 25px;
+        }
+    }
+    &--1 {
+        .projectImageContainer {
+            background-color: #1b2456;
+            align-items: flex-start;
+        }
+    }
+    &--2 {
+        .projectImageContainer {
+            margin-right: 25px;
+        }
+    }
+    &--3 {
+        .projectImageContainer {
+            background-color: whitesmoke;
+        }
+    }
+}
+

@@ -98,6 +98,7 @@ button.dayInMonth {
     &--gis, &--crc, &--github, &--juno, &--coursera {
         height: 100%;
         width: 100%;
+        flex-grow: 1;
         background-size: contain;
         background-repeat: no-repeat;
     }

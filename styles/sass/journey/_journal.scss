@@ -18,15 +18,22 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 30px;
     gap: 10px;
     background-color: rgba(245, 245, 245, 0.8);
     .symbolContainer {
+        display: flex;
+        gap: 10px;
+        p {
+            flex: 0 0 calc(100% - 50px);
+        }
         &--gis, &--crc, &--github, &--juno, &--coursera {
             height: 50px;
             width: 50px;
             flex-grow: 1;
+            background-size: contain;
+            background-repeat: no-repeat;
         }
     }
 }

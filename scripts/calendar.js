@@ -1,15 +1,19 @@
 import liveJournal from './liveJournal.js';
+import { java, juno, crc, bootcamp, afterBootcamp } from './story.js';
 
 const calendar = function() {
     const createJournalPages = liveJournal.createJournalPages;
+    const stories = [ java, juno, crc, bootcamp, afterBootcamp ];
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const today = new Date();
+    let story = {};
+    let projects = [];
     let calendarSection = document.getElementsByClassName('calendarContainer')[0];
     let minimized = 'minimized'; // class name to toggle calendar between normal and minimized
-    let chosenDate = today;
-    let calendarMonth = today.getMonth();
-    let calendarYear = today.getFullYear();
+    let chosenDate = java.milestone;
+    let calendarMonth = chosenDate.getMonth();
+    let calendarYear = chosenDate.getFullYear();
     let markedDates = [];
     let nameClass = '';
     const fillCalendar = function() {
@@ -198,6 +202,7 @@ const calendar = function() {
                 minimized = 'minimized';
             };
         };
+        getStory();
         const calendarDisplay = createCalendarDisplay(dates);
         calendarSection.innerHTML = calendarDisplay;
         
@@ -209,7 +214,7 @@ const calendar = function() {
 
         const calendar = calendarSection.getElementsByClassName('calendarDisplay')[0];
         calendar.onsubmit = (event) => handleSubmit(event);
-        calendar.insertAdjacentHTML('afterend', createJournalPages());
+        calendar.insertAdjacentHTML('afterend', createJournalPages(story, chosenDate));
 
         const previousButton = calendar.getElementsByClassName('previousMonth')[0];
         previousButton.onclick = () => handleCalendarNav(-1);
@@ -227,10 +232,15 @@ const calendar = function() {
     };
 
     const getMilestone = function(milestone) {
-        calendarMonth = milestone;
+        calendarMonth = milestone.getMonth();
+        chosenDate = milestone;
         calendarYear = 2020;
         buildCalendar(markedDates, nameClass);
         return calendarMonth;
+    };
+
+    const getGitProjects = function(apiResponse) {
+        projects = apiResponse;        
     };
 
     const setMilestone = function() {
@@ -246,12 +256,24 @@ const calendar = function() {
         });
     };
 
+    const getStory = function() {
+        story = stories.filter((story, index) => {
+            const { milestone } = story;
+            if (index < stories.length - 1) {
+                return (milestone - chosenDate <= 0) && (chosenDate - stories[index + 1].milestone < 0);    
+            } else {
+                return (milestone - chosenDate <= 0);
+            };
+        })[0];
+    }
+
     return {
         months: monthNames,
         calendarMonth: calendarMonth,
         chosenDate: chosenDate,
         buildCalendar: buildCalendar,
-        getMilestone: getMilestone
+        getMilestone: getMilestone,
+        getGitProjectNames: getGitProjectNames
     };
 }();
 

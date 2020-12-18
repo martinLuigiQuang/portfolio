@@ -1,0 +1,31 @@
+.projects {
+    margin: 100px 0;
+}
+
+.projects, .projectContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.individualProject {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    background-color: yellowgreen;
+    .projectImageContainer {
+        width: 25%;
+        height: 200px;
+        background-color: yellow;
+    }
+    .projectDescription {
+        width: 70%;
+    }
+    &:nth-child(2n + 1) {
+        flex-direction: row-reverse;
+        .projectDescription {
+            text-align: right;
+        }
+    }
+}

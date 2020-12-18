@@ -1,9 +1,14 @@
 .journey {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 150px;
-    margin-bottom: 70px;
+    height: 1150px;
+    background-image: url(../../../assets/mountain.jpg);
+    background-blend-mode: overlay;
+    background-color: rgba(142, 178, 255, 0.37);
+    background-size: cover;
+    background-repeat: no-repeat;
     h2 {
         display: block;
     }
@@ -16,6 +21,7 @@
     background: linear-gradient(90deg, coral, rgb(111, 0, 255));
     height: 1px;
     border-radius: 5px;
+    margin-bottom: 150px;
     button {
         align-self: center;
         width: 30px;

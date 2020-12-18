@@ -1,6 +1,8 @@
 header {
     width: 100%;
     height: 100vh;
+    max-height: 1000px;
+    min-height: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,7 +15,7 @@ h1 {
 
 .brainPictureContainer, .burstOfColours {
     width: 50%;
-    height: 100vh;
+    height: 100%;
 }
 
 .brainPictureContainer {
@@ -23,6 +25,6 @@ h1 {
 .burstOfColours {
     background: url(../../assets/burstOfColours.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: left;
 }

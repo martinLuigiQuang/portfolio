@@ -6,6 +6,7 @@
     <title>Martin Nguyen's Portfolio</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Mrs+Saint+Delafield&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
@@ -15,13 +16,65 @@
         <h1>Martin Nguyen</h1>
     </header>
     <main>
-        <section class="about"></section>
-        <section class="journey"></section>
-        <section class="calendar"></section>
+        <section class="about">
+            <div class="wrapper aboutMeContainer">
+                <div class="main--profilePic">
+                    <img src="../../assets/mainProfilePic.jpg" alt="profile picture of Martin"/>
+                </div> <!-- closing main--profilePic -->
+                <div class="main--bio">
+                    <h2>Hi I'm Martin</h2>
+                    <p>I am a web developer based in Toronto with a unique blend of a sharp analytical mind and a creative flair. As a geoscientist with a 1st Class Honours Degree in Physics who has progressed to excel in humanitarian sector, I thrive in multidisciplinary and collaborative environments.</p>
+                    <p>I am particularly good at listening to people and understanding different perspectives. Equally good are my abilities to solve differential equations and extract information from raw data.</p>
+                    <p>If I am not writing JavaScript or learning new web development concepts, I am coding my way to the AI brain of my Vector robot or out for a 1-hour walk through local parks.</p>
+                </div> <!-- closing main--bio -->    
+            </div> <!-- closing wrapper -->
+        </section> <!-- closing about -->
+        <section class="journey">
+            <div class="timeline wrapper"></div> <!-- closing timeline -->
+            <div class="calendarContainer wrapper"></div> <!-- closing calendar -->
+        </section>
         <section class="projects"></section>
-        <section class="contact"></section>
+        <section class="alterEgo">
+            <div class="wrapper aboutMeContainer">
+                <div class="alternate--profilePic">
+                    <img src="../../assets/alternateProfilePic.jpg" alt="Luigi - Martin's coding alter ego"/>
+                </div> <!-- closing alternate--profilePic -->
+                <div class="alternate--bio">
+                    <h2>Hi I'm Martin</h2>
+                    <p>My father was an avid Super Mario Bros fan. The only problem was he kept 'dying' as Mario. So he called me Luigi, as a nickname at home, after the character he was able to finish the game with.</p>
+                    <p>Now as a developer, and in memory of my father, I take on the identity of Luigi to remind myself that if at first things don't work out, just learn from the mistakes and try again. </p>
+                </div> <!-- closing alternate--bio -->
+            </div> <!-- closing wrapper -->
+        </section> <!-- closing alterEgo -->
+        <section class="contact">
+            <div class="wrapper contactContainer">
+                <h2>get in touch</h2>
+                <div class="myContact">
+                    <h3>contact me</h3>
+                    <p><span></span>martin.nguyen.20289@gmail.com</p>
+                    <p><span></span>(416) 818-5279</p>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div> <!-- closing myContact -->
+                <fieldset>
+                    <legend><h3>message me</h3></legend>
+                    <form action="https://www.focuspocus.io/magic/martin.nguyen.20289@gmail.com" method="POST" enctype="multipart/form-data">
+                            <label for="name" class="srOnly">Name</label>
+                            <input type="text" name="name" id="name" placeholder="Your name">
+                            <label for="email" class="srOnly">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Your email address">
+                            <label for="message" class="srOnly">Your message to me</label>
+                            <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                    </form>
+                </fieldset>
+            </div> <!-- closing wrapper-->
+        </section> <!-- closing contact -->
     </main>
-    <footer></footer>
+    <footer>
+        <p class="wrapper">Created by Martin Nguyen</p>
+        <a href="https://icons8.com/icon/62452/firebase">Firebase icon by Icons8</a>
+    </footer>
     <script src="https://kit.fontawesome.com/6ef8eb0028.js" crossorigin="anonymous"></script>
     <script type="module" src="./scripts/app.js"></script>
 </body>

@@ -1,14 +1,11 @@
-import projects from './projects.js';
 import liveJournal from './liveJournal.js';
 
 const calendar = function() {
     const createJournalPages = liveJournal.createJournalPages;
-    const createMyStory = liveJournal.createMyStory;
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const today = new Date();
-    let indexOfDisplayedPhoto = 0;
-    let calendarSection = document.getElementsByClassName('calendar')[0];
+    let calendarSection = document.getElementsByClassName('calendarContainer')[0];
     let minimized = 'minimized'; // class name to toggle calendar between normal and minimized
     let chosenDate = today;
     let calendarMonth = today.getMonth();
@@ -139,57 +136,38 @@ const calendar = function() {
             return dateEntry;
         }
         return `
-            <div class="calendarContainer wrapper">
-                <form class="calendarDisplay">
-                    ${
-                        createCalendarNav(calendarYear, calendarMonth)
-                    }
-                    ${
-                        weekdays.map( (weekday) => {
-                            return (
-                                minimized
-                                    ?   `<h3 class="weekdays">${weekday.slice(0,1)}</h3>`
-                                    :   `<h3 class="weekdays">${weekday.slice(0,3)}</h3>`
-                            );
-                        }).reduce((acc, cur) => {
-                            return acc + cur;
-                        })
-                    }
-                    ${
-                        filledCalendar.map( (day) => {
-                            let dateEntry = '';
-                            const { marked, className } = isMarked(dates, day, nameClass);
-                            if (marked) {
-                                dateEntry = insertDate(day, className);
-                            } else {
-                                dateEntry = insertDate(day, '');
-                            }
-                            return dateEntry;
-                        }).reduce((acc, cur) => {
-                            return acc + cur;
-                        })
-                    }
-                </form>
-            </div>
+            <form class="calendarDisplay">
+                ${
+                    createCalendarNav(calendarYear, calendarMonth)
+                }
+                ${
+                    weekdays.map( (weekday) => {
+                        return (
+                            minimized
+                                ?   `<h3 class="weekdays">${weekday.slice(0,1)}</h3>`
+                                :   `<h3 class="weekdays">${weekday.slice(0,3)}</h3>`
+                        );
+                    }).reduce((acc, cur) => {
+                        return acc + cur;
+                    })
+                }
+                ${
+                    filledCalendar.map( (day) => {
+                        let dateEntry = '';
+                        const { marked, className } = isMarked(dates, day, nameClass);
+                        if (marked) {
+                            dateEntry = insertDate(day, className);
+                        } else {
+                            dateEntry = insertDate(day, '');
+                        }
+                        return dateEntry;
+                    }).reduce((acc, cur) => {
+                        return acc + cur;
+                    })
+                }
+            </form>
         `;
     };
-
-    const displayMyStory = function(myStory) {
-        const handlePhotoNav = function(change) {
-            indexOfDisplayedPhoto += change;
-            if (indexOfDisplayedPhoto < 0) {
-                indexOfDisplayedPhoto = projects.length;
-            } else if (indexOfDisplayedPhoto > projects.length - 1) {
-                indexOfDisplayedPhoto = 0;
-            };
-            displayMyStory(myStory);
-        };
-        myStory.innerHTML = createMyStory(projects[0]);
-        const nextPhoto = calendarSection.getElementsByClassName('nextPhoto')[0];
-        nextPhoto.onclick = () => handlePhotoNav(1);
-        const previousPhoto = calendarSection.getElementsByClassName('previousPhoto')[0];
-        previousPhoto.onclick = () => handlePhotoNav(-1);
-    }
 
     const buildCalendar = function(dates, className) {
         markedDates = dates;
@@ -222,19 +200,16 @@ const calendar = function() {
         };
         const calendarDisplay = createCalendarDisplay(dates);
         calendarSection.innerHTML = calendarDisplay;
-
-        let calendarWrapper = calendarSection.getElementsByClassName('wrapper')[0];
+        
         if (minimized) {
-            calendarWrapper.classList.add(minimized);
+            calendarSection.classList.add(minimized);
+        } else {
+            calendarSection.classList.remove('minimized');
         };
 
         const calendar = calendarSection.getElementsByClassName('calendarDisplay')[0];
         calendar.onsubmit = (event) => handleSubmit(event);
         calendar.insertAdjacentHTML('afterend', createJournalPages());
-
-        const journalPage = calendarSection.getElementsByClassName('journal')[0];
-        journalPage.insertAdjacentHTML('afterend', '<section class="myStory"></section>')
-        displayMyStory(calendarSection.getElementsByClassName('myStory')[0]);
 
         const previousButton = calendar.getElementsByClassName('previousMonth')[0];
         previousButton.onclick = () => handleCalendarNav(-1);

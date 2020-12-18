@@ -7,8 +7,9 @@ const liveJournal = function() {
         };
         return `
             <section class="journal">
-                <h2>live journal</h2>
                 <div class="activities">
+                    <h2>live journal</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     ${
                         classList.includes('gitHub')
                             ?   `<div class="symbolContainer--github"></div>`
@@ -34,33 +35,30 @@ const liveJournal = function() {
                             ?   `<div class="symbolContainer--gis"></div>`
                             :   ''
                     }
-                </div>
+                </div> <!-- closing activities -->
+                <div class="skills">
+                    <h2>my tech journey</h2>
+                    <ul>
+                        <li><i class="fab fa-html5"></i><span>html5</span></li>
+                        <li><i class="fas fa-universal-access"></i><span>accessibility</span></li>
+                        <li><i class="fab fa-css3-alt"></i><span>css3</span></li>
+                        <li><i class="fab fa-sass"></i><span>sass</span></li>
+                        <li><i class="fas fa-mobile-alt"></i><span>responsive</span></li>
+                        <li><i class="fab fa-java"></i><span>java</span></li>
+                        <li><i class="fab fa-js-square"><div></div></i><span>javascript</span></li>
+                        <li><i class="devicon-jquery-plain"></i><span>jquery</span></li>
+                        <li><i class="fab fa-react"></i><span>react</span></li>
+                        <li><i class="devicon-git-plain"></i><span>git</span></li>
+                        <li><i class="fab fa-github"></i><span>github</span></li>
+                        <li><img src="https://img.icons8.com/color/96/000000/firebase.png"/><span>firebase</span></li>
+                    </ul>
+                </div> <!-- closing skills -->
             </section>
         `
     };
 
-    const createMyStory = function(photo) {
-        return `
-            <h2>my story</h2>
-            <div class="photosContainer">
-                <img src="../../${photo.imgFile}" alt="${photo.altText}"/>
-                <div class="photoDisplayNav">
-                    <button class="previousPhoto"><i class="fas fa-chevron-left"></i></button>
-                    <button class="nextPhoto"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-            <div class="content">
-                <h3>my canadian experience</h3>
-                <p>Born and raised in Vietnam, I earned my basic degree in Physics in Singapore. One permanent resident application rejection and one acceptance later, I became a brand new resident in Canada.</p>
-                <p>I worked odd jobs to keep my dreams alive. Being a part of the Canadian Red Cross response to the COVID-19 pandemic, as well as their support programmes for First Nation communities affected by Covid, has taught me a lot about Canada and the people who live here.</p>
-                <p>Now equipped with the knowledge of web development technologies thanks to the wonderful instructors at Juno College of Technology, I am both excited and ready to take on any challenge and begin my career in technology.</p>
-            </div>
-        `;
-    };
-
     return {
-        createJournalPages: createJournalPages,
-        createMyStory: createMyStory
+        createJournalPages: createJournalPages
     };
 }();
 

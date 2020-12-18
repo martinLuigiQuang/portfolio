@@ -1,0 +1,110 @@
+.journal {
+    flex: 1 0 30%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    h2 {
+        position: absolute;
+        top: -65px;
+        left: 0;
+        font-family: 'Mrs Saint Delafield', cursive;
+        font-size: 8rem;
+    }
+}
+
+.activities {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 10px;
+    background-color: rgba(245, 245, 245, 0.8);
+    .symbolContainer {
+        &--gis, &--crc, &--github, &--juno, &--coursera {
+            height: 50px;
+            width: 50px;
+            flex-grow: 1;
+        }
+    }
+}
+
+.skills {
+    height: 40%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: rgba(245, 245, 245, 0.8);
+    ul {
+        width: 100%;
+        padding: 10px;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(4, 100px);
+        grid-template-rows: repeat(3, 70px);
+        li {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            font-size: 5.5rem;
+            span{
+                font-size: 1.8rem;
+                color: #272727;
+            }
+            .devicon-jquery-plain {
+                color: #086BAC;
+            }
+            .fa-html5 {
+                color: #F16529;
+            }
+            .fa-universal-access {
+                color: #068ae2;
+            }
+            .fa-css3-alt {
+                color: #2965f1;
+            }
+            .fa-sass {
+                color: #cd6799;
+            }
+            .fa-mobile-alt {
+                color: #00c066
+            }
+            .fa-java {
+                color: #009baf;
+            }
+            .fa-js-square {
+                color: #f0db4f;
+                position: relative;
+                div {
+                    width: calc(100% - 6px);
+                    height: calc(100% - 10px);
+                    background-color: #323330;
+                    position: absolute;
+                    top: 5px;
+                    left: 3px;
+                    border-radius: 5px;
+                    z-index: -1;
+                }
+            }
+            .fa-react {
+                color: #61dbfb;
+            }
+            .devicon-git-plain {
+                color: #f34f29;
+            }
+            .fa-github {
+                color: #211f1f;
+            }
+            img {
+                height: 100%;
+            }
+        }
+    }
+}

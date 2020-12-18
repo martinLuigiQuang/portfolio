@@ -1,15 +1,9 @@
-.calendar {
-    display: flex;
-    justify-content: flex-start;
-    justify-content: center;
-    height: 750px;
-}
-
 .calendarContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
+    height: 750px;
 }
 
 .calendarDisplay {

@@ -14,7 +14,9 @@
             border: none;
         }
     }
-    .myStory {
-        display: flex;
+    .skills {
+        ul {
+            grid-template-columns: repeat(4, 20%);
+        }
     }
 }

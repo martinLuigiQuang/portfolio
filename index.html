@@ -10,80 +10,11 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    <header>
-        <div class="headerContainer wrapper">
-            <div class="menu">
-                <input type="checkbox" name="menu" id="menu">
-                <label for="menu">menu</label>
-                <nav>
-                    <ul>
-                        <li><a href="">home</a></li>
-                        <li><a href="">about me</a></li>
-                        <li><a href="">journey / skills</a></li>
-                        <li><a href="">projects</a></li>
-                        <li><a href="">contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class='brand'>
-                <h1>Martin Nguyen</h1>
-                <h2>web developer</h2>
-            </div> <!-- closing brand -->
-        </div> <!-- closing wrapper -->
-    </header>
     <main>
-        <section class="about">
-            <div class="wrapper aboutMeContainer">
-                <div class="main--profilePic">
-                    <img src="../../assets/mainProfilePic.jpg" alt="profile picture of Martin"/>
-                </div> <!-- closing main--profilePic -->
-                <div class="main--bio">
-                    <h2>Hi I'm Martin</h2>
-                    <p>I am a web developer based in Toronto with a unique blend of a sharp analytical mind and a creative flair. As a geoscientist with a 1st Class Honours Degree in Physics who has progressed to excel in humanitarian sector, I thrive in multidisciplinary and collaborative environments.</p>
-                    <p>I am particularly good at listening to people and understanding different perspectives. Equally good are my abilities to solve differential equations and extract information from raw data.</p>
-                    <p>If I am not writing JavaScript or learning new web development concepts, I am coding my way to the AI brain of my Vector robot or out for a 1-hour walk through local parks.</p>
-                </div> <!-- closing main--bio -->    
-            </div> <!-- closing wrapper -->
-        </section> <!-- closing about -->
         <section class="journey">
             <div class="timeline wrapper"></div> <!-- closing timeline -->
             <div class="calendarContainer wrapper"></div> <!-- closing calendar -->
         </section>
-        <section class="projects"></section>
-        <section class="contact">
-            <div class="wrapper contactContainer">
-                <h2>get in touch</h2>
-                <div class="myContact">
-                    <h3>contact me</h3>
-                    <p class="phone"><i class="fas fa-envelope-square"></i>martin.nguyen.20289@gmail.com</p>
-                    <p class="email"><i class="fas fa-phone-square-alt"></i>(416) 818-5279</p>
-                    <div class="links">
-                        <a href=""><i class="fab fa-github"></i></a>
-                        <a href=""><img src="./assets/medium.png" alt="medium logo"></a>
-                    </div> <!-- closing links -->
-                </div> <!-- closing myContact -->
-                <fieldset>
-                    <legend><h3>message me</h3></legend>
-                    <form action="mailto:martin.nguyen.20289@gmail.com" method="POST" enctype="text/plain">
-                            <label for="name" class="srOnly">Name</label>
-                            <input type="text" name="name" id="name" placeholder="Your name">
-                            <label for="email" class="srOnly">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Your email address">
-                            <label for="message" class="srOnly">Your message to me</label>
-                            <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                            <input type="submit" value="Submit">
-                    </form>
-                </fieldset>
-            </div> <!-- closing wrapper-->
-        </section> <!-- closing contact -->
-    </main>
-    <footer>
-        <div class="wrapper">
-            <p>Created by Martin Nguyen</p>
-            <p>|</p>
-            <a href="https://icons8.com/icon/62452/firebase">Firebase icon by Icons8</a>
-        </div>
-    </footer>
     <script src="https://kit.fontawesome.com/6ef8eb0028.js" crossorigin="anonymous"></script>
     <script type="module" src="./scripts/app.js"></script>
 </body>

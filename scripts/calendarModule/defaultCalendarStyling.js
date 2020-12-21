@@ -14,13 +14,13 @@ const defaultCalendarStyling = function() {
                             align-items: center;
                     -ms-flex-wrap: wrap;
                         flex-wrap: wrap;
+                    width: 380px;
                 }
                 
                 .datePicker input#calendar {
                     font-size: 25px;
                     -ms-flex-item-align: start;
                         align-self: flex-start;
-                    width: 100%;
                     max-width: 220px;
                     min-width: 160px;
                 }
@@ -61,7 +61,7 @@ const defaultCalendarStyling = function() {
                     padding: 10px;
                     position: absolute;
                     top: 35px;
-                    right: 30px;
+                    right: 35px;
                     z-index: 10;
                     -ms-grid-columns: (calc((100% - 12px)/7))[7];
                         grid-template-columns: repeat(7, calc((100% - 12px)/7));
@@ -91,6 +91,20 @@ const defaultCalendarStyling = function() {
                     -ms-grid-column: 2;
                     -ms-grid-column-span: 4;
                     grid-column: 2 / span 4;
+                }
+
+                .calendarDisplay .weekdays {
+                    -ms-grid-column: 1;
+                    -ms-grid-column-span: 7;
+                    grid-column: 1 / span 7;
+                    display: -ms-grid;
+                    display: grid;
+                    gap: 2px;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
+                    -ms-grid-columns: (1fr)[7];
+                        grid-template-columns: repeat(7, 1fr);
                 }
                 
                 .calendarDisplay .previousMonth, .calendarDisplay .nextMonth, .calendarDisplay .collapseButton {

@@ -63,15 +63,13 @@ const calendarGenerator = function() {
     // Day buttons are disabled if that day is in the past
     const createCalendarDate = function(day, classList) {
         return `
-            <div class="dayEntry">
-                ${ !day 
-                    ?   ''
-                    :   `<button class="day ${classList}" value="${day}" ${isPast(day)? 'disabled' : ''}>
-                            <span>${day.charAt(0)}</span>
-                            <span>${day.charAt(1)}</span>
-                        </button>`
-                }
-            </div>
+            ${ !day 
+                ?   `<div></div>`
+                :   `<button class="day ${classList}" value="${day}" ${isPast(day)? 'disabled' : ''}>
+                        <span>${day.charAt(0)}</span>
+                        <span>${day.charAt(1)}</span>
+                    </button>`
+            }
         `;
     };
 
@@ -92,13 +90,15 @@ const calendarGenerator = function() {
     // createCalendarWeek function to generate the HTML to display the weekdays
     const createCalendarWeek = function() {
         return `
-            ${
-                weekdays.map( (weekday) => {
-                    return `<h3 class="weekdays">${weekday.slice(0,1)}</h3>`
-                }).reduce((acc, cur) => {
-                    return acc + cur;
-                })
-            }    
+            <div class="weekdays">
+                ${
+                    weekdays.map( (weekday) => {
+                        return `<h3>${weekday.slice(0,1)}</h3>`
+                    }).reduce((acc, cur) => {
+                        return acc + cur;
+                    })
+                }
+            </div>    
         `;
     };
 

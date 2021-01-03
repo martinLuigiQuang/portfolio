@@ -1,4 +1,41 @@
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    background: linear-gradient(135deg, #ffb195, rgb(83, 255, 255));
+    background-color: whitesmoke;
+}
+
+.technicalSkills {
+    display: flex;
+    justify-content: center;
+    background-color: #dfdfdf;
+    width: 100%;
+    grid-column: 1 /span 2;
+    ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(3, 100px);
+        background: none;
+        li {
+            display: flex;
+            justify-self: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            font-size: 5.5rem;
+            span{
+                font-size: 1.8rem;
+                color: #272727;
+            }
+            i {
+                color: #00144b;
+            }
+            img {
+                height: 55%;
+                filter: saturate(100%) hue-rotate(290deg);
+            }
+        }
+    }
 }

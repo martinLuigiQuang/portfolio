@@ -1,0 +1,39 @@
+.about {
+    display: grid;
+    gap: 20px;
+}
+
+.personalSkills {
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+    ul li {
+        display: grid;
+        grid-template-columns: 80px auto;
+        gap: 20px;
+    }
+    ul li i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        font-size: 6rem;
+        background-color: #db005b;
+        border-radius: 5px;
+        color: whitesmoke;
+    }
+}
+
+.personalInfo {
+    display: flex;
+    flex-direction: column;
+    .profilePicContainer {
+        width: 100%;
+        img {
+            width: 100%;
+            border-radius: 5px;
+            filter: grayscale(40%);
+        }
+    }
+}

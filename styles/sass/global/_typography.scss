@@ -1,43 +1,11 @@
-h1 {
-    margin: 0;
-    font-size: 5rem;
-    text-transform: uppercase;
+h1, h2 {
+    font-size: 6rem;
 }
 
-h2 {
-    font-weight: 700;
-    font-family: 'Cinzel', serif;
-    font-size: 5rem;
-}
-
-h3, label, input, button {
-    font-family: 'Cinzel', serif;
+h3 {
     font-size: 2.2rem;
-    font-weight: 400;
-}
-
-span {
-    font-size: 3rem;
-}
-
-ul {
-    list-style: none;
-    font-family: 'Cinzel', serif;
-}
-
-ol {
-    font-size: 2rem;
-    padding-left: 20px;
-}
-
-a {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: rgb(39, 39, 39);
-    font-size: 3rem;
 }
 
 p {
     font-size: 2rem;
 }
-

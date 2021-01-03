@@ -3,8 +3,8 @@ import projects from './projects.js';
 const projectDisplay = function() {
     const projectsSection = document.getElementsByClassName('projects')[0];
 
-    const createFeaturedProjectDisplay = function(projects) {
-        return `
+    function createFeaturedProjectDisplay(projects) {
+        const projectDisplay = `
             <div class="wrapper projectContainer">
                 <h2>featured projects</h2>
                 ${
@@ -26,16 +26,22 @@ const projectDisplay = function() {
                                         <a href="">github repo</a>
                                     </div> <!-- closing links -->
                                 </div> <!-- closing projectDescription -->
-                            </div>
+                            </div> <!-- closing individualProject project--${index} -->
                         `;       
+                    }).reduce((acc, cur) => {
+                        return acc + cur;
                     })
                 }
             </div>
         `;
+        const templateFragment = document.createElement('template');
+        templateFragment.innerHTML = projectDisplay;
+        return templateFragment;
     };
 
     const buildProjectDisplay = function() {
-        projectsSection.innerHTML = createFeaturedProjectDisplay(projects);
+        const projectDisplay = createFeaturedProjectDisplay(projects);
+        projectsSection.appendChild(projectDisplay.content);
     };
 
     const init = function() {

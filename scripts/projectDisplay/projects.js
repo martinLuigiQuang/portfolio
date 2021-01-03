@@ -22,12 +22,12 @@ const projects = [
     },
     
     {
-        imgFile: './assets/mothersHeart.jpg',
-        name: 'Mother\'s Heart',
-        technologies: 'HTML5 | CSS3 | Vanilla JavaScript | Firebase',
-        description: 'An online health monitor application that allows the user to save their blood pressures, heart rate, and blood sugar levels, and display the data on a dashboard. The saved data are deleteable and adjustable',
-        features: 'responsive live dashboard, input error checks, access to data history',
-        deadline: 'self-initated project with daily updates',
+        imgFile: './assets/footForward.png',
+        name: 'Foot Forward',
+        technologies: 'HTML5 | CSS3',
+        description: 'A single-page PSD using floats',
+        features: 'responsive, collapsible navigation bar',
+        deadline: 'project completed in 7 days',
         liveLink: '',
         gitHubRepo: ''
     },
@@ -38,6 +38,28 @@ const projects = [
         technologies: 'HTML5 | Sass | jQuery',
         description: 'A countdown timer that also allows the user to set an event countdown',
         features: 'countdown animations, input autoconversion',
+        deadline: 'project completed in 7 days',
+        liveLink: '',
+        gitHubRepo: ''
+    },
+
+    {
+        imgFile: '',
+        name: 'Reserved',
+        technologies: 'HTML5 | Sass | jQuery | RESTful API',
+        description: '',
+        features: 'loading animations, save to and retrieve restaurant bookings from calendar',
+        deadline: 'project completed in 7 days',
+        liveLink: '',
+        gitHubRepo: ''
+    },
+
+    {
+        imgFile: '',
+        name: 'This Day in History',
+        technologies: 'HTML5 | CSS3 | React JS | RESTful API',
+        description: '',
+        features: 'stylized calendar, dynamic title',
         deadline: 'project completed in 7 days',
         liveLink: '',
         gitHubRepo: ''

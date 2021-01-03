@@ -1,27 +1,11 @@
-.journey {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url(../../../assets/mountain.jpg);
-    background-blend-mode: overlay;
-    background-color: rgba(142, 178, 255, 0.37);
-    background-size: cover;
-    background-repeat: no-repeat;
-    h2 {
-        display: block;
-    }
-}
-
 .timeline {
+    grid-column: 1 / span 2;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
     background: linear-gradient(90deg, coral, rgb(111, 0, 255));
     height: 1px;
     border-radius: 5px;
-    margin-bottom: 150px;
     button {
         align-self: center;
         width: 30px;
@@ -31,18 +15,6 @@
         background-color: rgb(255, 255, 255);
         position: relative;
         cursor: pointer;
-        h3 {
-            position: absolute;
-            width: 200px;
-            left: calc(-85px);
-            font-weight: bold;
-        }
-        &:nth-child(2n + 1) > h3 {
-            top: -40px;
-        }
-        &:nth-child(2n) > h3 {
-            bottom: -40px;
-        }
         &:hover, &:focus {
             background: linear-gradient(45deg, cyan, coral, crimson);
         }
@@ -58,6 +30,16 @@
                 border: 2px solid black;
                 animation: rotate 4s linear infinite;
             }
+        }
+    }
+    h2 {
+        position: relative;
+        span {
+            width: 280px;
+            font-size: 1.6rem;
+            position: absolute;
+            left: 150px;
+            bottom: -25px;
         }
     }
 }

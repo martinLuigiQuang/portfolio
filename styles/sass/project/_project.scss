@@ -1,0 +1,47 @@
+.projects {
+    background-color:  #dfdfdf;
+    display: flex;
+    justify-content: center;
+}
+
+.projectContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    h2 {
+        flex-basis: 100%;
+        text-align: center;
+    }
+}
+
+.individualProject {
+    flex-basis: 280px;
+    .projectImageContainer {
+        width: 100%;
+        height: 280px;
+        display: flex;
+        align-items: center;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.project {
+    &--0 {
+        .projectImageContainer {
+            background-color: #f6a823;
+        }
+    }
+    &--1 {
+        .projectImageContainer {
+            background-color: #1b2456;
+        }
+    }
+    &--3 {
+        .projectImageContainer {
+            background-color: whitesmoke;
+        }
+    }
+}

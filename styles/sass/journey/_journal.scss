@@ -20,13 +20,13 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        gap: 10px;
         &--gis, &--crc, &--juno, &--coursera {
             height: 50px;
             flex: 1 0 50px;
             max-width: 50px;
             background-size: contain;
             background-repeat: no-repeat;
+            margin-right: 10px;
         }
         &--gis {
             grid-area: gis;

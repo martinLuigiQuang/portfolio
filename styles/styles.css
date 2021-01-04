@@ -290,6 +290,7 @@ h3 {
 
 p {
   font-size: 2.2rem;
+  margin: 10px 0;
 }
 
 header {
@@ -488,11 +489,10 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-column-gap: 100px;
-          column-gap: 100px;
 }
 
 .aboutContainer .profilePictureContainer {
+  margin-right: 100px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 500px;
           flex: 0 0 500px;
@@ -539,7 +539,6 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 20px;
   margin-bottom: 50px;
 }
 
@@ -861,7 +860,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 10px;
 }
 
 .journal .symbolContainer--gis, .journal .symbolContainer--crc, .journal .symbolContainer--juno, .journal .symbolContainer--coursera {
@@ -872,6 +870,7 @@ main {
   max-width: 50px;
   background-size: contain;
   background-repeat: no-repeat;
+  margin-right: 10px;
 }
 
 .journal .symbolContainer--gis {
@@ -1254,11 +1253,8 @@ footer p {
 }
 
 @media (max-width: 1280px) {
-  .aboutContainer {
-    -webkit-column-gap: 50px;
-            column-gap: 50px;
-  }
   .aboutContainer .profilePictureContainer {
+    margin-right: 50px;
     -webkit-box-flex: 1;
         -ms-flex: 1 0 300px;
             flex: 1 0 300px;
@@ -1277,9 +1273,10 @@ footer p {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    row-gap: 50px;
   }
   .aboutContainer .profilePictureContainer {
+    margin-right: 0;
+    margin-bottom: 50px;
     width: 300px;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -1300,10 +1297,15 @@ footer p {
     -ms-grid-column-align: center;
         justify-self: center;
   }
+  .myStory form {
+    -ms-grid-row: 3;
+    grid-row: 3;
+  }
   .myStory .timeline {
     position: relative;
     -webkit-transform: translateY(50px);
             transform: translateY(50px);
+    margin-bottom: 30px;
   }
   .myStory .timeline h2 {
     position: absolute;
@@ -1391,16 +1393,17 @@ footer p {
   .calendarDisplay button.day {
     height: 40px;
   }
-  .timeline {
+  .myStory .timeline {
     -ms-grid-column-align: center;
         justify-self: center;
     width: 280px;
   }
-  .timeline h2 {
+  .myStory .timeline h2 {
     top: -100px;
   }
-  .timeline span {
-    display: none;
+  .myStory .timeline h2 span {
+    width: 200px;
+    left: 22px;
   }
   .journal {
     width: 280px;

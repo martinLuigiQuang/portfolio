@@ -1,22 +1,18 @@
-import apiCall from './apiCall.js';
-import journey from './journey.js';
-import projectDisplay from './projectDisplay.js';
+import projectDisplay from './projectDisplay/projectDisplay.js';
+import calendar from './calendarModule/calendar.js';
 
 const app = {
-    buildCalendar: apiCall.init,
-    buildTimeline: journey.init,
     buildProjectDisplay: projectDisplay.init,
+    buildCalendar: calendar.init,
     init: function() {
-        this.buildCalendar();
-        this.buildTimeline();
         this.buildProjectDisplay();
+        this.buildCalendar();
     }
 };
 
 if (document.readyState === 'complete') {
     app.init();
 } else {
-    document.addEventListener('DOMContentLoaded', function() {
-        app.init();
-    });
+    document.addEventListener('DOMContentLoaded', () => app.init());
+    document.removeEventListener('DOMContentLoaded', () => app.init());
 };

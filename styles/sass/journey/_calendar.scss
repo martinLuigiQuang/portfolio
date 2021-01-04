@@ -1,125 +1,115 @@
-.calendarContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    height: 750px;
+.datePicker {
+    width: 100%;
+    label, input, .calendarIcon, .weekdays, .collapseButton {
+        display: none;
+    }
 }
 
 .calendarDisplay {
-    width: calc(100% - 500px);
-    min-width: 400px;
     display: grid;
-    align-content: start;
-    background-color: rgba(245, 245, 245, 0.74);
-    border-radius: 0 0 5px 5px;
-    padding: 10px;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, calc(320px / 7));
+    grid-template-rows: repeat(6, auto);
     gap: 5px;
-    position: relative;
     .calendarNav {
-        border-radius: 5px 5px 0 0;
-        background-color: rgba(255, 127, 80, 0.9);
         display: grid;
-        grid-template-columns: 50px 250px 50px calc(100% - 350px);
-        align-items: center;
-        height: 50px;
-        width: 100%;
-        position: absolute;
-        top: -50px;
-        h3 {
-            font-size: 3rem;
-            text-align: center;
-        }
+        grid-template-columns: repeat(7, 50px);
+        grid-column: 1 / span 7;
+        font-size: 3rem;
+        position: relative;
         button {
-            justify-self: end;
-            margin-right: 20px;
-            width: auto;
+            height: 45px;
+            background-color: whitesmoke;
             border: none;
-            background-color: rgba(255, 127, 80, 0);
+            border-bottom: 2px solid darkblue;
+        }
+        .monthInfo {
+            grid-column: 2 / span 5;
+            display: grid;
+            grid-template-columns: repeat(2, 125px);
+        }
+    }
+    button.day {
+        background-color: whitesmoke;
+        border: 1px solid #03091a;
+        height: 45px;
+        border-radius: 5px;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        &.chosen {
+            background-color: gold;
+        }
+        &.today {
+            background-color: brown;
+            color: whitesmoke;
+        }
+    }
+    .symbolContainer {
+        &--gis, &--crc, &--juno, &--coursera {
+            height: 5px;
+            width: 5px;
+            position: absolute;
+            bottom: 5px;
+        }
+        &--gis {
+            background-color: #0d9900;
+            left: 17px;
+        }
+        &--crc {
+            background-color: crimson;
+            left: 24px;
+        }
+        &--juno {
+            background-color: rgb(255, 87, 25);
+            left: 10px;
+        }
+        &--coursera {
+            background-color: #0090e4;
+            left: 31px;
+        }
+    }
+}
+
+.selectionPanel {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    z-index: 1;
+    background-color: whitesmoke;
+    display: grid;
+    align-content: center;
+    &--month {
+        display: grid;
+        grid-template-columns: repeat(4, 80px);
+        justify-content: center;
+        gap: 5px;
+        button.selection {
+            border: 1px solid darkblue;
             border-radius: 5px;
-            i {
-                cursor: pointer;
+        }
+    }
+    &--year {
+        button.selection {
+            border: 1px solid darkblue;
+            border-radius: 5px;
+        }
+        &--display {
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            justify-content: center;
+            gap: 5px;
+            button.selection:nth-child(9) {
+                grid-column: 2;
             }
         }
-        button.nextMonth, button.previousMonth {
-            justify-self: stretch;
+        &--nav {
+            display: flex;
+            justify-content: space-between;
+            button {
+                width: 54px;
+            }
         }
-    }
-    .weekdays {
-        font-weight: bold;
-        text-align: center;
-    }
-    button.dayInMonth {
-        width: 100%;
-        height: calc((100vw - 500px) / 7);
-        max-height: calc(780px / 7);
-        background-color: rgba(255, 255, 255, 0.459);
-        box-sizing: border-box;
-        cursor: pointer;
-        border: 2px solid #4E8098;
-        border-radius: 5px;
-        padding: 5px;
-    }
-    button:hover, button:focus {
-        background-color:rgba(0, 255, 255, 0.459);
-        color: #A31621;
-    }
-    button.previousMonth,
-    button.nextMonth {
-        width: auto;
-    }
-    button.chosen {
-        background-color: rgba(255, 217, 0, 0.808);
-    }
-    button.today {
-        background-color: rgba(255, 127, 80, 0.828);
-    }
-}
-
-button.dayInMonth {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(3, 30%);
-    grid-template-rows: repeat(3, 30%);
-    grid-gap: 5%;
-    grid-template-areas:
-    "day day . "
-    "crc juno gis"
-    "coursera . github";
-}
-
-.dayContainer {
-    grid-area: day;
-    display: flex;
-}
-
-.symbolContainer {
-    &--gis, &--crc, &--github, &--juno, &--coursera {
-        height: 100%;
-        width: 100%;
-        flex-grow: 1;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-    &--gis {
-        grid-area: gis;
-        background-image: url(../../assets/gisIcon.png);
-    }
-    &--crc {
-        grid-area: crc;
-        background-image: url(../../assets/crcSymbol.png);
-    }
-    &--github {
-        grid-area: github;
-        background-image: url(../../assets/gitHubIcon.png);
-    }
-    &--juno {
-        grid-area: juno;
-        background-image: url(../../assets/junoSymbol.png);
-    }
-    &--coursera {
-        grid-area: coursera;
-        background-image: url(../../assets/courseraIcon.png);
     }
 }

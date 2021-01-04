@@ -60,7 +60,7 @@ const calendarGenerator = function() {
     // day param refers to the value of a particular calendar date in the filledCalendar array
     function isPast(day) {
         return new Date(calendarYear, calendarMonth, day) - new Date(today.getFullYear(), today.getMonth(), today.getDate()) < 0;
-    }
+    };
 
     // isToday function to check if a particular date is the current date
     // day param refers to the value of a particular calendar date in the filledCalendar array
@@ -103,9 +103,11 @@ const calendarGenerator = function() {
     // Day buttons are disabled if that day is in the past
     function createCalendarDate(day, classList) {
         return `
-            ${!day
-                ? `<div></div>`
-                : `<button class="day ${classList}" value="${day}" ${isPast(day) ? '' : ''}>
+            ${  !day
+                ?   `<div></div>`
+                :   `<button class="day ${classList}" value="${day}" ${(!isPast(day) && !isToday(day)) ? 'disabled' : ''} 
+                             aria-label="click to choose ${months[calendarMonth]} ${day} ${calendarYear}"
+                    >
                         <span>${day.charAt(0)}</span>
                         <span>${day.charAt(1)}</span>
                     </button>`
@@ -119,15 +121,15 @@ const calendarGenerator = function() {
     function createCalendarNav(year, month) {
         return `
             <div class="calendarNav">
-                <button class="previousMonth"><i class="fas fa-chevron-left"></i></button>
+                <button class="previousMonth" aria-label="navigate to previous month"><i class="fas fa-chevron-left"></i></button>
                 <div class="monthInfo">
                     <button class="monthButton">${months[month].slice(0, 3)}</button>
                     <button class="yearButton">${year}</button>
-                </div>
-                <button class="nextMonth"><i class="fas fa-chevron-right"></i></button>
-                <button class="collapseButton"><i class="far fa-minus-square"></i></button>
-                <div class="selectionPanel"></div>
-            </div>
+                </div> <!-- closing monthInfo -->
+                <button class="nextMonth" aria-label="navigate to next month"><i class="fas fa-chevron-right"></i></button>
+                <button class="collapseButton" aria-label="minimize the calendar"><i class="far fa-minus-square"></i></button>
+                <div class="selectionPanel"></div> <!-- closing selectionPanel -->
+            </div> <!-- closing calendarNav -->
         `;
     };
 
@@ -142,7 +144,7 @@ const calendarGenerator = function() {
                         return acc + cur;
                     })
                 }
-            </div>    
+            </div> <!-- closing weekdays -->   
         `;
     };
 
@@ -160,34 +162,34 @@ const calendarGenerator = function() {
                 type="text" name="calendar" id="calendar" 
                 ${
                     chosenDate 
-                        ? `value=${chosenDate.getFullYear()}-${convertNumToString(chosenDate.getMonth() + 1)}-${convertNumToString(chosenDate.getDate())}` 
-                        : `placeholder="yyyy-mm-dd"`
+                    ? `value=${chosenDate.getFullYear()}-${convertNumToString(chosenDate.getMonth() + 1)}-${convertNumToString(chosenDate.getDate())}` 
+                    : `placeholder="yyyy-mm-dd"`
                 } 
                 readonly
             >
             <section class="calendar">
                 ${
                     minimized
-                        ?   `<button class="calendarIcon"><i class="far fa-calendar-alt"></i></button>`
-                        :   `<button class="calendarIcon"><i class="far fa-calendar-alt"></i></button>
-                            <div class="calendarDisplay">
-                                ${
-                                    createCalendarNav(calendarYear, calendarMonth)
-                                }
-                                ${
-                                    createCalendarWeek()
-                                }
-                                ${
-                                    filledCalendar.map( (day) => {
-                                        return insertDate(day);
-                                    }).reduce((acc, cur) => {
-                                        return acc + cur;
-                                    })
-                                }
-                            </div>
-                        `
+                    ?   `<button class="calendarIcon" aria-label="toggle calendar display"><i class="far fa-calendar-alt"></i></button>`
+                    :   `<button class="calendarIcon" aria-label="toggle calendar display"><i class="far fa-calendar-alt"></i></button>
+                        <div class="calendarDisplay">
+                            ${
+                                createCalendarNav(calendarYear, calendarMonth)
+                            }
+                            ${
+                                createCalendarWeek()
+                            }
+                            ${
+                                filledCalendar.map( (day) => {
+                                    return insertDate(day);
+                                }).reduce((acc, cur) => {
+                                    return acc + cur;
+                                })
+                            }
+                        </div> <!-- closing calendarDisplay -->
+                    `
                 }
-            </section>
+            </section> <!-- closing calendar --> 
         `;
         // create a template element to hold the HTML codes for the calendar display; the template element is exported to calendar.js module as a DOM node
         const templateFragment = document.createElement('template');

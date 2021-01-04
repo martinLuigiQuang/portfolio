@@ -1,7 +1,7 @@
 .journal {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     h2 {
         font-family: 'Marck Script', cursive;
         font-size: 4rem;
@@ -9,6 +9,12 @@
     h3 {
         font-family: 'Cinzel', serif;
         text-transform: uppercase;
+        color: #00144b;
+    }
+    .storyContainer, .activitiesContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
     .symbolContainer {
         display: flex;

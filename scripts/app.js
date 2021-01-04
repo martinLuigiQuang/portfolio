@@ -1,13 +1,10 @@
-import personalSkills from './personalSkills/personalSkills.js';
 import projectDisplay from './projectDisplay/projectDisplay.js';
 import calendar from './calendarModule/calendar.js';
 
 const app = {
-    buildPersonalSkillsSection: personalSkills.init,
     buildProjectDisplay: projectDisplay.init,
     buildCalendar: calendar.init,
     init: function() {
-        this.buildPersonalSkillsSection();
         this.buildProjectDisplay();
         this.buildCalendar();
     }

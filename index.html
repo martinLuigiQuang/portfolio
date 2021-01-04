@@ -11,63 +11,31 @@
 </head>
 <body>
     <header>
+        <div class="wrapper">
+            <h1>Hi, I am <span>Martin</span>.</h1> 
+            <h2>I am a web developer.</h2>
+        </div> <!-- closing wrapper -->
         <nav></nav>
-        <h1>Hi, I am <span>Martin</span>.</h1> 
-        <h2>I am a web developer.</h2> 
-        <a href="">View my work</a>
     </header>
     <main>
-        <section class="about wrapper">
-            <div class="personalSkills">
-                <ul>
-                    <li>
-                        <i class="far fa-lightbulb"></i>
-                        <div class="text">
-                            <h3>Scientist by training</h3>
-                            <p>Trained as a physicist and worked as a geoscientist, I am adept at mathematical analysis, problem solving, and logical thinking.</p>
-                        </div> <!-- closing text -->
-                    </li>
-                    <li>
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <div class="text">
-                            <h3>Humanitarian at heart</h3>
-                            <p>Customer service and satisfaction are at core of my work, be it leading a consulting project, helping a charitable course, or building a technology.</p>
-                        </div> <!-- closing text -->
-                    </li>
-                    <li>
-                        <i class="far fa-eye"></i>
-                        <div class="text">
-                            <h3>Eye for details</h3>
-                            <p>Machines or humans, paying attention to small details makes all the difference. My experience taught me to think with my mind and lsiten with my heart for those finer details.</p>
-                        </div> <!-- closing text -->
-                    </li>
-                    <li>
-                        <i class="fas fa-cubes"></i>
-                        <div class="text">
-                            <h3>Modular design</h3>
-                            <p>I stand for well organized, modularized, and versatile products that can be applied in different scenarios. I follow the same philosophy in my coding and cooking.</p>
-                        </div> <!-- closing text -->
-                    </li>
-                    <li>
-                        <i class="fas fa-globe-asia"></i>
-                        <div class="text">
-                            <h3>Global mindset</h3>
-                            <p>Born in Vietnam, studied and worked in Singapore, now living in Toronto, I want to apply myself to building a technology that reaches a wide audience.</p>
-                        </div> <!-- closing text -->
-                    </li>
-                </ul>
-            </div> <!-- closing personalSkills -->
-            <div class="personalInfo">
-                <div class="profilePicContainer">
-                    <img src="./assets/mainProfilePic.jpg" alt="profile picture of Martin Nguyen">
-                </div> <!-- closing profilePicContainer -->
-                <h3>My name is Martin Nguyen</h3>
-                <p>I am a web developer based in Toronto.</p>
-                <p>A nomad both online and in real life, I am always ready for life's next adventure wherever that takes me.</p>
-                <a href="">Download my CV</a>
-            </div> <!-- closing personalInfo -->
-        </section> <!-- closing about -->
+        <section class="about">
+            <div class="wrapper aboutContainer">
+                <div class="profilePictureContainer">
+                    <img src="./assets/profilePic.jpg" alt="profile picture">
+                </div> <!-- closing profilePictureContainer -->
+                <div class="profileText">
+                    <div class="aboutText">
+                        <h3> Martin Nguyen 🌈<span>🌈</span></h3>
+                        <p>I am a web developer based in <span>Toronto</span>. I am a <span>physics graduate</span> turned geoscientist turned humanitarian responder turned programmer. I understand math and people, and love solving complex problems and communicating the solutions creatively.</p>
+                        <p>I thrive in a collaborative environment where team members can bounce ideas off one another.</p>
+                        <p>Among the things that I built in my web development bootcamp with Juno College of Technology are search autocompletion, search results pagination, multi-lingual interface, infinite carousel display, and customizable calendars with interactive timelines. Add your ideas here and let's build it together!</p>
+                    </div> <!-- closing text -->
+                    <a href="">Download my CV</a>
+                </div> <!-- closing profileText -->
+            </div> <!-- closing aboutContainer-->
+        </section>  <!-- closing about -->
         <section class="technicalSkills">
+            <h2>My Skills</h2>
             <ul class="wrapper">
                 <li><i class="fab fa-html5"></i><span>html5</span></li>
                 <li><i class="fas fa-universal-access"></i><span>accessibility</span></li>
@@ -86,21 +54,40 @@
             </ul>
         </section> <!-- closing technicalSkills -->
         <section class="myStory wrapper">
-            <div class="timeline"></div>
+            <div class="timeline"></div> <!-- closing timeline -->
             <form>
-                <div class="datePicker"></div>
+                <div class="datePicker"></div> <!-- closing datePicker-->
             </form>
-            <div class="journal"></div>
+            <div class="journal"></div> <!-- closing journal -->
         </section> <!-- closing journal -->
-        <section class="projects">
-
-        </section> <!-- closing projects -->
-        <section class="contact wrapper">
-
+        <section class="projects"></section> <!-- closing projects -->
+        <section class="blogs"></section> <!-- closing blogs -->
+        <section class="contact">
+            <div class="wrapper contactContainer">
+                <div class="contactInfo">
+                    <div class="personalInfo">
+                        <div class="pictureContainer">
+                            <img src="./assets/mainProfilePic.jpg" alt="profile picture">
+                        </div> <!-- closing profilePictureContainer -->
+                        <div class="contactText">
+                            <h3>Martin Nguyen</h3>
+                            <p>A web developer and a nomad both online and in real life.</p> 
+                            <p>I am always ready for life's next adventure.</p>
+                        </div> <!-- closing text -->
+                        <a href="">Download my CV</a>
+                    </div> <!-- closing personalInfo -->
+                    <ul>
+                        <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href=""><i class="fab fa-medium"></i></a></li>
+                        <li><a href=""><i class="fab fa-github-square"></i></a></li>
+                        <li><a href=""><i class="fas fa-envelope-square"></i></a></li>
+                    </ul>
+                </div> <!-- closing contactInfo -->
+            </div> <!-- closing wrapper -->
         </section> <!-- closing contact -->
     </main>
     <footer>
-        
+        <p>Created by Martin Nguyen</p>
     </footer>
     <script src="https://kit.fontawesome.com/6ef8eb0028.js" crossorigin="anonymous"></script>
     <script type="module" src="./scripts/app.js"></script>

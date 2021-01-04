@@ -44,7 +44,7 @@ const projects = [
     },
 
     {
-        imgFile: '',
+        imgFile: './assets/reserved.png',
         name: 'Reserved',
         technologies: 'HTML5 | Sass | jQuery | RESTful API',
         description: '',
@@ -55,12 +55,12 @@ const projects = [
     },
 
     {
-        imgFile: '',
-        name: 'This Day in History',
-        technologies: 'HTML5 | CSS3 | React JS | RESTful API',
+        imgFile: './assets/mothersHeart.jpg',
+        name: 'Mother\'s Heart',
+        technologies: 'HTML5 | Sass | PHP | MongoDB',
         description: '',
-        features: 'stylized calendar, dynamic title',
-        deadline: 'project completed in 7 days',
+        features: 'access to data history, health data dashboard',
+        deadline: 'self-initiated project with regular updates',
         liveLink: '',
         gitHubRepo: ''
     }

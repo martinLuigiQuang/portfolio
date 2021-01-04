@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: 350px auto;
     align-content: flex-start;
-    gap: 80px;
+    column-gap: 80px;
+    row-gap: 80px;
     height: 600px;
     margin: 50px 0 20px;
 }

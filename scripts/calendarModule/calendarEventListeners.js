@@ -3,6 +3,7 @@ import calendarInformation from './calendarInformation.js';
 const calendarEventListeners = function() {
     // Initial imports from calendarGenerator module; updated values will be exported back to calendarGenerator by the calendarGenerator.importFromCalendar() method
     let [minimized, chosenDate, calendarYear, calendarMonth] = calendarInformation.setInformation();
+    const [,, today] = calendarInformation.exportConstants();
 
     // getChosenDate function to bind the user's chosen date to the global chosenDate variable and also pass it to calendarGenerator.js module via getChosenDate method
     function handleChosenDate(day, buildCalendar) {
@@ -30,6 +31,9 @@ const calendarEventListeners = function() {
             calendarYear++;
         };
         chosenDate = new Date(calendarYear, calendarMonth, 1);
+        if (chosenDate - today > 0) {
+            chosenDate = today;
+        };
         // export the user's chosen date (if any), current calendar year and month, and whether or not the calendar is minimized to the calendarGenerator module to generate new calendar
         calendarInformation.getInformation(minimized, chosenDate, calendarYear, calendarMonth);
         // build new calendar with the new imports from calendarGenerator module

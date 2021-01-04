@@ -95,8 +95,9 @@ const liveJournal = function() {
             </h2>
             ${
                 !classList.includes('juno') && !classList.includes('crc') && !classList.includes('coursera') && !classList.includes('gis')
-                ?   story
-                :   story + activities
+                ?   `<div class="storyContainer">${story}</div> <!-- closing storyContainer -->`
+                :   `<div class="storyContainer">${story}</div> <!-- closing storyContainer -->` + 
+                    `<div class="activitiesContainer">${activities}</div> <!-- closing activitiesContainer -->`
             }
         `;
         const templateFragment = document.createElement('template');

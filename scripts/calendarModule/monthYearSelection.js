@@ -1,7 +1,7 @@
 import calendarInformation from './calendarInformation.js';
 
 const monthYearSelection = function() {
-    const [months] = calendarInformation.exportConstants();
+    const [months,, today] = calendarInformation.exportConstants();
     let [, chosenDate, calendarYear, calendarMonth] = calendarInformation.setInformation();
     let currentDecade = getCurrentDecade(calendarYear);
 
@@ -64,6 +64,9 @@ const monthYearSelection = function() {
         selectionPanel.style.height = 0;
         monthButton.innerHTML = months[calendarMonth];
         chosenDate = new Date(calendarYear, calendarMonth, 1);
+        if (chosenDate - today > 0) {
+            chosenDate = today;
+        };
         calendarInformation.getInformation('', chosenDate, calendarYear, calendarMonth);
         [, chosenDate, calendarYear, calendarMonth] = calendarInformation.setInformation();
         buildCalendar();
@@ -75,6 +78,9 @@ const monthYearSelection = function() {
         selectionPanel.style.height = 0;
         yearButton.innerHTML = calendarYear;
         chosenDate = new Date(calendarYear, calendarMonth, 1);
+        if (chosenDate - today > 0) {
+            chosenDate = today;
+        };
         calendarInformation.getInformation('', chosenDate, calendarYear, calendarMonth);
         [, chosenDate, calendarYear, calendarMonth] = calendarInformation.setInformation();
         buildCalendar();

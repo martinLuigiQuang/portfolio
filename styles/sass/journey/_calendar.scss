@@ -7,17 +7,17 @@
 
 .calendarDisplay {
     display: grid;
-    grid-template-columns: repeat(7, 50px);
+    grid-template-columns: repeat(7, calc(320px / 7));
     grid-template-rows: repeat(6, auto);
     gap: 5px;
     .calendarNav {
         display: grid;
-        grid-template-columns: repeat(7, 54px);
+        grid-template-columns: repeat(7, 50px);
         grid-column: 1 / span 7;
         font-size: 3rem;
         position: relative;
         button {
-            height: 50px;
+            height: 45px;
             background-color: whitesmoke;
             border: none;
             border-bottom: 2px solid darkblue;
@@ -25,13 +25,13 @@
         .monthInfo {
             grid-column: 2 / span 5;
             display: grid;
-            grid-template-columns: repeat(2, 135px);
+            grid-template-columns: repeat(2, 125px);
         }
     }
     button.day {
         background-color: whitesmoke;
         border: 1px solid #03091a;
-        height: 50px;
+        height: 45px;
         border-radius: 5px;
         font-size: 2rem;
         display: flex;

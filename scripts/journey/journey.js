@@ -1,5 +1,4 @@
 import calendarInformation from '../calendarModule/calendarInformation.js';
-import markedDates from './markedDates.js';
 import liveJournal from './liveJournal.js';
 import stories from './stories.js';
 

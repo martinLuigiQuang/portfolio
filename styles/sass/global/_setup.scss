@@ -26,6 +26,11 @@ body {
     padding: 75px 0;
 }
 
+a {
+    text-decoration: none;
+    font-size: 2rem;
+}
+
 button {
     cursor: pointer;
     &:hover, &:focus {

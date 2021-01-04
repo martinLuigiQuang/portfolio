@@ -6,26 +6,23 @@ const projectDisplay = function() {
     function createFeaturedProjectDisplay(projects) {
         const projectDisplay = `
             <div class="wrapper projectContainer">
-                <h2>featured projects</h2>
+                <h2>Featured Projects</h2>
                 ${
                     projects.map((project, index) => {
                         return `
                             <div class="individualProject project--${index}">
                                 <div class="projectImageContainer">
                                     <img src="../../${project.imgFile}" alt="Cover picture for project ${project.name}"/>
-                                </div> <!-- closing projectImageContainer -->
-                                <div class="projectDescription">
-                                    <h3>Project: ${project.name}</h3>
-                                    <div class="descriptions">
+                                    <div class="projectDescription">
+                                        <h3>Project: ${project.name}</h3>
                                         <h4>${project.technologies}</h4>
-                                        <p><b>Description</b>: ${project.description}. <strong><em>Special features</em></strong>: ${project.features}</p>
-                                        <p><b>Deadline</b>: ${project.deadline}</p>
-                                    </div> <!-- descriptions -->
-                                    <div class="links">
-                                        <a href="">live link</a>
-                                        <a href="">github repo</a>
-                                    </div> <!-- closing links -->
-                                </div> <!-- closing projectDescription -->
+                                        <p><strong><em>Special features</em></strong>: ${project.features}</p>
+                                        <div class="links">
+                                            <a href="${project.liveLink}">live link</a>
+                                            <a href="${project.gitHubRepo}">github repo</a>
+                                        </div> <!-- closing links -->
+                                    </div> <!-- closing projectDescription -->
+                                </div> <!-- closing projectImageContainer -->
                             </div> <!-- closing individualProject project--${index} -->
                         `;       
                     }).reduce((acc, cur) => {
@@ -39,12 +36,12 @@ const projectDisplay = function() {
         return templateFragment;
     };
 
-    const buildProjectDisplay = function() {
+    function buildProjectDisplay() {
         const projectDisplay = createFeaturedProjectDisplay(projects);
         projectsSection.appendChild(projectDisplay.content);
     };
 
-    const init = function() {
+    function init() {
         buildProjectDisplay();
     };
 

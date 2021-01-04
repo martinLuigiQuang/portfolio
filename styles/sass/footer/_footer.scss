@@ -1,16 +1,10 @@
 footer {
-    background-color: #1b2456;
+    background-color: #00144b;
     padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    .wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
-    }
-    p, a {
+    p {
         text-align: center;
         color: whitesmoke;
         font-size: 2rem;

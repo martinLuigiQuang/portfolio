@@ -11,7 +11,7 @@ const projectDisplay = function() {
                     projects.map((project, index) => {
                         return `
                             <div class="individualProject project--${index}">
-                                <div class="projectImageContainer">
+                                <button class="projectImageContainer">
                                     <img src="../../${project.imgFile}" alt="Cover picture for project ${project.name}"/>
                                     <div class="projectDescription">
                                         <h3>Project: ${project.name}</h3>
@@ -22,7 +22,7 @@ const projectDisplay = function() {
                                             <a href="${project.gitHubRepo}">github repo</a>
                                         </div> <!-- closing links -->
                                     </div> <!-- closing projectDescription -->
-                                </div> <!-- closing projectImageContainer -->
+                                </button> <!-- closing projectImageContainer -->
                             </div> <!-- closing individualProject project--${index} -->
                         `;       
                     }).reduce((acc, cur) => {

@@ -59,6 +59,7 @@ const monthYearSelection = function() {
     };
 
     function handleMonthSelection(selection, selectionPanel, monthButton, buildCalendar) {
+        [, chosenDate, calendarYear, calendarMonth] = calendarInformation.setInformation();
         calendarMonth = parseInt(selection.value);
         selectionPanel.innerHTML = '';
         selectionPanel.style.height = 0;
@@ -68,11 +69,11 @@ const monthYearSelection = function() {
             chosenDate = today;
         };
         calendarInformation.getInformation('', chosenDate, calendarYear, calendarMonth);
-        [, chosenDate, calendarYear, calendarMonth] = calendarInformation.setInformation();
         buildCalendar();
     };
 
     function handleYearSelection(selection, selectionPanel, yearButton, buildCalendar) {
+        [, chosenDate, calendarYear, calendarMonth] = calendarInformation.setInformation();
         calendarYear = parseInt(selection.value);
         selectionPanel.innerHTML = '';
         selectionPanel.style.height = 0;
@@ -82,7 +83,6 @@ const monthYearSelection = function() {
             chosenDate = today;
         };
         calendarInformation.getInformation('', chosenDate, calendarYear, calendarMonth);
-        [, chosenDate, calendarYear, calendarMonth] = calendarInformation.setInformation();
         buildCalendar();
     };
 

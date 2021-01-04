@@ -35,8 +35,7 @@ const journey = function() {
             if (event.target.children.length) {
                 calendarMonth = getMilestone(new Date(event.target.value));
             } else {
-                getMilestone(event.target.parentNode.value);
-                calendarMonth = getMilestone(new Date(event.target.value));
+                calendarMonth = getMilestone(new Date(event.target.parentNode.value));
             };
             buildTimeline();
         };

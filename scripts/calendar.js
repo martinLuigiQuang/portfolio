@@ -245,12 +245,12 @@ const calendar = function() {
 
     const setMilestone = function() {
         const focusedButton = document.getElementsByClassName('milestone focus')[0];
-        console.log(focusedButton)
         if (focusedButton) {
             focusedButton.classList.remove('focus');
         };
         const milestones = [...document.getElementsByClassName('milestone')];
         milestones.forEach((milestone) => {
+            console.log(milestone.value)
             if (parseInt(milestone.value) === calendarMonth && calendarYear === 2020) {
                milestone.classList.add('focus');
             }

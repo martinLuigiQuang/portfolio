@@ -7,7 +7,7 @@
 .aboutContainer {
     display: flex;
     justify-content: space-between;
-    gap: 100px;
+    column-gap: 100px;
     .profilePictureContainer {
         flex: 1 0 500px;
         height: 500px;

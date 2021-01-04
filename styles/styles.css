@@ -488,7 +488,8 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  gap: 100px;
+  -webkit-column-gap: 100px;
+          column-gap: 100px;
 }
 
 .aboutContainer .profilePictureContainer {
@@ -1253,7 +1254,8 @@ footer p {
 
 @media (max-width: 1280px) {
   .aboutContainer {
-    gap: 50px;
+    -webkit-column-gap: 50px;
+            column-gap: 50px;
   }
   .aboutContainer .profilePictureContainer {
     -webkit-box-flex: 1;

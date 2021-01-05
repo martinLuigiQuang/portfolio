@@ -908,8 +908,25 @@ main {
   -webkit-column-gap: 80px;
           column-gap: 80px;
   row-gap: 80px;
-  height: 600px;
+  height: 700px;
   margin: 50px 0 20px;
+  position: relative;
+}
+
+.myStory a.link {
+  position: absolute;
+  left: calc(50% - 90px);
+  bottom: 50px;
+  background-color: #00144b;
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.myStory a.link:hover, .myStory a.link:focus {
+  background-color: crimson;
 }
 
 .projects {

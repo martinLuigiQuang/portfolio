@@ -81,6 +81,12 @@
             }
         }
     }
+    .buttonContainer {
+        display: flex;
+        a {
+            margin-right: 10px;
+        }
+    }
 }
 
 .pictureContainer {

@@ -18,8 +18,8 @@ const projectDisplay = function() {
                                         <h4>${project.technologies}</h4>
                                         <p><strong><em>Special features</em></strong>: ${project.features}</p>
                                         <div class="links">
-                                            <a href="${project.liveLink}">live link</a>
-                                            <a href="${project.gitHubRepo}">github repo</a>
+                                            <a href="${project.liveLink}" target="_blank">live link</a>
+                                            <a href="${project.gitHubRepo}" target="_blank">github repo</a>
                                         </div> <!-- closing links -->
                                     </div> <!-- closing projectDescription -->
                                 </button> <!-- closing projectImageContainer -->

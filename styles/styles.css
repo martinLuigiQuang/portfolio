@@ -1234,6 +1234,16 @@ main {
   color: crimson;
 }
 
+.contactInfo .buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contactInfo .buttonContainer a {
+  margin-right: 10px;
+}
+
 .pictureContainer {
   width: 100px;
   height: 100px;

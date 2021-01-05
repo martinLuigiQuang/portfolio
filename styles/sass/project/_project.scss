@@ -25,14 +25,18 @@
         display: flex;
         align-items: center;
         position: relative;
+        border: none;
         img {
             width: 100%;
         }
         .projectDescription {
-            opacity: 0;
             display: flex;
+            visibility: hidden;
+            opacity: 0;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: start;
             gap: 20px;
             background-color: #f6f6f6ed;
             width: 100%;
@@ -41,7 +45,7 @@
             position: absolute;
             z-index: 1;
             transform: scale(0.95);
-            transition: transform 0.3s linear, opacity 0.3s;
+            transition: all 0.3s;
             h3 {
                 text-transform: uppercase;
             }
@@ -70,6 +74,7 @@
             &:hover > .projectDescription, &:focus > .projectDescription {
                 transform: scale(1);
                 opacity: 1;
+                visibility: visible;
             }
         }
     }
@@ -80,6 +85,7 @@
             &:focus > .projectDescription {
                 transform: scale(1);
                 opacity: 1;
+                visibility: visible;
             }
         }
     }
@@ -89,6 +95,7 @@
             &:hover > .projectDescription, &:focus > .projectDescription {
                 transform: scale(1);
                 opacity: 1;
+                visibility: visible;
             }
         }
     }
@@ -98,6 +105,7 @@
             &:hover > .projectDescription, &:focus > .projectDescription {
                 transform: scale(1);
                 opacity: 1;
+                visibility: visible;
             }
         }
     }
@@ -107,10 +115,14 @@
             &:hover > .projectDescription, &:focus > .projectDescription {
                 transform: scale(1);
                 opacity: 1;
+                visibility: visible;
             }
         }
     }
     &--5 {
+        .projectDescription a {
+            display: none;
+        }
         .projectImageContainer {
             background-color: coral;
             position: relative;
@@ -130,6 +142,7 @@
             &:hover > .projectDescription, &:focus > .projectDescription {
                 transform: scale(1);
                 opacity: 1;
+                visibility: visible;
                 a {
                     display: none;
                 }

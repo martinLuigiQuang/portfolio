@@ -24,7 +24,7 @@ const stories = function() {
     
     const crc = {
         milestone: new Date(2020, 6, 1),
-        story: 'Attending bootcamp was not without financial hurdle. I was very fortunate to be referred and offered a position as an emergency responder at Canadian Red Cross. Not only was I able to save up for bootcamp, being a responder also taught me a lot about Canada and the people who live here.',
+        story: 'Attending bootcamp was not without financial hurdles. I was very fortunate to be referred and offered a position as an emergency responder at Canadian Red Cross. Not only was I able to save up for bootcamp, being a responder also taught me a lot about Canada and the people who live here.',
         activity: 'Aiding Canadian Red Cross (CRC) response to Covid-19 pandemic as well as natural and personal disasters'
     };
     

@@ -957,6 +957,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  border: none;
 }
 
 .individualProject .projectImageContainer img {
@@ -964,17 +965,22 @@ main {
 }
 
 .individualProject .projectImageContainer .projectDescription {
-  opacity: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  visibility: hidden;
+  opacity: 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: start;
   gap: 20px;
   background-color: #f6f6f6ed;
   width: 100%;
@@ -984,10 +990,8 @@ main {
   z-index: 1;
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s linear;
-  transition: opacity 0.3s, -webkit-transform 0.3s linear;
-  transition: transform 0.3s linear, opacity 0.3s;
-  transition: transform 0.3s linear, opacity 0.3s, -webkit-transform 0.3s linear;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .individualProject .projectImageContainer .projectDescription h3 {
@@ -1019,6 +1023,7 @@ main {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
+  visibility: visible;
 }
 
 .project--1 .projectImageContainer {
@@ -1030,6 +1035,7 @@ main {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
+  visibility: visible;
 }
 
 .project--2 .projectImageContainer {
@@ -1040,6 +1046,7 @@ main {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
+  visibility: visible;
 }
 
 .project--3 .projectImageContainer {
@@ -1050,6 +1057,7 @@ main {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
+  visibility: visible;
 }
 
 .project--4 .projectImageContainer {
@@ -1060,6 +1068,11 @@ main {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
+  visibility: visible;
+}
+
+.project--5 .projectDescription a {
+  display: none;
 }
 
 .project--5 .projectImageContainer {
@@ -1091,6 +1104,7 @@ main {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
+  visibility: visible;
 }
 
 .project--5 .projectImageContainer:hover > .projectDescription a, .project--5 .projectImageContainer:focus > .projectDescription a {
@@ -1352,7 +1366,7 @@ footer p {
     font-size: 4rem;
   }
   .aboutContainer .profileText .aboutText h3 {
-    font-size: 2.5rem;
+    font-size: 3.2rem;
   }
   .aboutContainer .profilePictureContainer:before {
     right: -20px;

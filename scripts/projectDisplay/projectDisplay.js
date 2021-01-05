@@ -38,6 +38,7 @@ const projectDisplay = function() {
 
     function buildProjectDisplay() {
         const projectDisplay = createFeaturedProjectDisplay(projects);
+        projectsSection.innerHTML = '';
         projectsSection.appendChild(projectDisplay.content);
     };
 

@@ -15,7 +15,7 @@ const projects = [
         name: 'Book Club Reads',
         technologies: 'HTML5 | CSS3 | React JS | RESTful API | Firebase',
         description: 'A book search application that allows the user to save their books and track their reading progress',
-        features: 'multi-lingual user interface, autocompletion of searches, pagination of search results, display toggle for bookshelf',
+        features: 'multi-lingual user interface, autocompletion of searches, pagination of search results',
         deadline: 'group project completed with Brittany Barnard, Marielle Roberts, and Jonathan Lyn in 7 days',
         liveLink: 'https://brittany-marielle-martin-jon-project-6.github.io/book-club-reads/',
         gitHubRepo: 'https://github.com/brittany-marielle-martin-jon-project-6/book-club-reads'

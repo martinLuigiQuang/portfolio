@@ -1,13 +1,13 @@
 const projects = [
     {
-        imgFile: './assets/sophie.png',
-        name: 'It\'s all about Sophie',
-        technologies: 'HTML5 | Sass',
-        description: 'A multi-page PSD responsive conversion using HTML5 and Sass',
-        features: 'Animated brand title, collapsible navigation bar, hidden long contents',
+        imgFile: './assets/thisDayInHistory.png',
+        name: 'This Day In History',
+        technologies: 'HTML5 | CSS3 | React JS | RESTful API',
+        description: 'An interactive web application that allows a user to select a date and explore what happened throughout history on the same day.',
+        features: 'thematically-styled calendar built in React, content awareness',
         deadline: 'project completed in 7 days',
-        liveLink: 'https://martinluigiquang.github.io/martin-nguyen-project-two/',
-        gitHubRepo: 'https://github.com/martinLuigiQuang/martin-nguyen-project-two'
+        liveLink: 'https://martinluigiquang.github.io/martin-nguyen-project-five/',
+        gitHubRepo: 'https://github.com/martinLuigiQuang/martin-nguyen-project-five'
     },
     
     {

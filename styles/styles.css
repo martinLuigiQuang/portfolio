@@ -375,6 +375,7 @@ input#menu {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  border: none;
   cursor: pointer;
   z-index: 4;
 }
@@ -1468,7 +1469,7 @@ footer p {
             transform: translateX(100%);
     left: auto;
     right: 0;
-    width: 30%;
+    width: 280px;
     border-radius: 5px;
     -webkit-box-pack: start;
         -ms-flex-pack: start;

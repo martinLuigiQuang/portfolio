@@ -33,6 +33,7 @@ input#menu {
     height: 50px;
     width: 50px;
     appearance: none;
+    border: none;
     cursor: pointer;
     z-index: 4;
     &:checked ~ nav {

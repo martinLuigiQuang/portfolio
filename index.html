@@ -20,19 +20,22 @@
             <h1>Hi, I am <span>Martin</span>.</h1> 
             <h2>I am a web developer.</h2>
         </div> <!-- closing wrapper -->
+        <label for="menu" class="menu srOnly">menu</label>
+        <input type="checkbox" name="menu" id="menu">
+        <div class="menu"></div>
         <nav>
-            <ul>
-                <li><a href="">home</a></li>
-                <li><a href="">about</a></li>
-                <li><a href="">skills</a></li>
-                <li><a href="">journal</a></li>
-                <li><a href="">projects</a></li>
-                <li><a href="">contact</a></li>
+            <ul class="wrapper">
+                <li><a href="#">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#mystory">journal</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#contact">contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="about">
+        <section class="about" id="about">
             <div class="wrapper aboutContainer">
                 <div class="profilePictureContainer">
                     <img src="./assets/profilePic.jpg" alt="profile picture">
@@ -45,14 +48,15 @@
                         <p>Among the things that I built in my web development bootcamp with Juno College of Technology are search autocompletion, search results pagination, multi-lingual interface, infinite carousel display, and customizable calendars with interactive timelines. Add your ideas here and let's build them together!</p>
                     </div> <!-- closing text -->
                     <div class="buttonContainer">
-                        <a href="./assets/martinNguyenCV.pdf">Download my CV</a>
-                        <a href="#myStory">View my journal</a>
+                        <a href="./assets/martinNguyenCV.pdf" target="_blank" download>Download my CV</a>
+                        <a href="#mystory">View my journal</a>
                     </div> <!-- closing buttonContainer -->
 
                 </div> <!-- closing profileText -->
             </div> <!-- closing aboutContainer-->
         </section>  <!-- closing about -->
-        <section class="technicalSkills">
+
+        <section class="technicalSkills" id="skills">
             <h2>My Skills</h2>
             <ul class="wrapper">
                 <li><i class="fab fa-html5"></i><span>html5</span></li>
@@ -71,7 +75,8 @@
                 <li><i class="devicon-mongodb-plain"></i><span>mongodb</span></li>
             </ul>
         </section> <!-- closing technicalSkills -->
-        <section class="myStory wrapper" id="myStory">
+
+        <section class="myStory wrapper" id="mystory">
             <div class="timeline"></div> <!-- closing timeline -->
             <form>
                 <div class="datePicker"></div> <!-- closing datePicker-->
@@ -79,9 +84,11 @@
             <div class="journal"></div> <!-- closing journal -->
             <a href="#contact" class="link">Add your story here</a>
         </section> <!-- closing journal -->
-        <section class="projects">
+
+        <section class="projects" id="projects">
             <h2>featured projects</h2>
         </section> <!-- closing projects -->
+
         <section class="contact" id="contact">
             <div class="wrapper contactContainer">
                 <div class="contactInfo">
@@ -95,11 +102,11 @@
                             <p>I am always ready for life's next adventure.</p>
                         </div> <!-- closing text -->
                         <div class="buttonContainer">
-                            <a href="./assets/martinNguyenCV.pdf" download>Download my CV</a>
+                            <a href="./assets/martinNguyenCV.pdf" target="_blank" download>Download my CV</a>
                             <a href="" onclick="Calendly.showPopupWidget('https://calendly.com/martin-luigi-quang');return false;">Let's chat</a>
                         </div> <!-- closing buttonContainer -->
                     </div> <!-- closing personalInfo -->
-                    <ul>
+                    <ul class="contactLinks">
                         <li><a href="https://www.linkedin.com/in/martin-nguyen-9a26b2143/" target="_blank" aria-label="link to Martin's LinkedIn account"><i class="fab fa-linkedin"></i></a></li>
                         <li><a href="https://luigi-codes.medium.com/" target="_blank" aria-label="link to Martin's Medium account"><i class="fab fa-medium"></i></a></li>
                         <li><a href="https://github.com/martinLuigiQuang" target="_blank" aria-label="link to Martin's GitHub account"><i class="fab fa-github-square"></i></a></li>

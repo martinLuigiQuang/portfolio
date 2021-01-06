@@ -82,9 +82,9 @@
     align-content: center;
     &--month {
         display: grid;
-        grid-template-columns: repeat(4, 80px);
+        grid-template-columns: repeat(4, 24%);
         justify-content: center;
-        gap: 5px;
+        gap: 2px;
         button.selection {
             border: 1px solid darkblue;
             border-radius: 5px;
@@ -97,9 +97,9 @@
         }
         &--display {
             display: grid;
-            grid-template-columns: repeat(4, 80px);
+            grid-template-columns: repeat(4, 24%);
             justify-content: center;
-            gap: 5px;
+            gap: 2px;
             button.selection:nth-child(9) {
                 grid-column: 2;
             }

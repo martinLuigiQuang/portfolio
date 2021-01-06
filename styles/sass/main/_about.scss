@@ -14,6 +14,7 @@
         position: relative;
         border: 10px solid  goldenrod ;
         img {
+            display: block;
             width: 100%;
         }
         &:after {
@@ -21,7 +22,7 @@
             box-sizing: border-box;
             width: 100px;
             height: 100px;
-            border-left: 100px solid crimson;
+            border-left: 100px solid #db005b;
             border-top: 100px solid transparent;
             position: absolute;
             bottom: -30px;
@@ -62,7 +63,7 @@
             border-radius: 5px;
             color: whitesmoke;
             &:hover, &:focus {
-                background-color: crimson;
+                background-color: #db005b;
             }
         }
     }

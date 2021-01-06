@@ -56,35 +56,46 @@
         border-radius: 5px;
         text-align: center;
         &:hover, &:focus {
-            background-color: crimson;
+            background-color: #db005b;
         }
     }
-    ul {
+}
+
+ul.contactLinks {
+    background: none;
+    list-style: none;
+    padding: 0;
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    justify-content: flex-start;
+    li {
+        height: 50px;
+    }
+    li i {
+        position: relative;
+        height: 40px;
+        &:after {
+            content: '';
+            width: 95%;
+            height: 100%;
+            border-radius: 5px;
+            background-color: whitesmoke;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            z-index: -1;
+        }
+    }
+    li a {
+        text-decoration: none;
+        color: #00144b;
+        font-size: 5rem;
         background: none;
-        list-style: none;
         padding: 0;
-        padding-top: 20px;
-        display: grid;
-        grid-template-columns: repeat(4, 50px);
-        li {
-            height: 50px;
-        }
-        li a {
-            text-decoration: none;
-            color: #00144b;
-            font-size: 5rem;
+        &:hover, &:focus {
             background: none;
-            padding: 0;
-            &:hover, &:focus {
-                background: none;
-                color: crimson;
-            }
-        }
-    }
-    .buttonContainer {
-        display: flex;
-        a {
-            margin-right: 10px;
+            color: #db005b;
         }
     }
 }
@@ -95,5 +106,15 @@
     img {
         width: 100%;
         border-radius: 50%;
+        display: block;
+    }
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+        margin: 10px 10px 10px 0;
+        text-align: center;
     }
 }

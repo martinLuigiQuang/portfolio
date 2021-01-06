@@ -1,16 +1,17 @@
 .myStory {
+    box-sizing: content-box;
     display: grid;
     grid-template-columns: 350px auto;
     align-content: flex-start;
     column-gap: 80px;
     row-gap: 80px;
-    height: 700px;
-    margin: 50px 0 20px;
+    height: 600px;
+    padding-top: 170px;
     position: relative;
     a.link {
         position: absolute;
         left: calc(50% - 90px);
-        bottom: 50px;
+        bottom: 70px;
         background-color: #00144b;
         width: 200px;
         padding: 10px;

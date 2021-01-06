@@ -324,65 +324,117 @@ header h2 {
   color: whitesmoke;
 }
 
-.menu {
-  width: 80px;
-  height: 50px;
-  background-color: whitesmoke;
-  border-radius: 0 0 5px 5px;
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: fixed;
-  top: 0;
-  z-index: 10;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 320px;
-  -webkit-transform: translateY(-110%);
-          transform: translateY(-110%);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-}
-
-ul {
+nav ul.wrapper {
+  padding: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 20px;
-  padding: 70px 20px 20px;
-  background-color: rgba(245, 245, 245, 0.815);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+
+nav ul.wrapper li a {
+  text-decoration: none;
+  color: #2b2b2b;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+nav ul.wrapper li a:hover, nav ul.wrapper li a:focus {
+  color: #db005b;
 }
 
 input#menu {
-  position: absolute;
-  height: 80px;
-  width: 80px;
+  display: none;
+  position: fixed;
+  right: 25px;
+  top: 15px;
+  height: 50px;
+  width: 50px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   cursor: pointer;
-  z-index: 1;
+  z-index: 3;
 }
 
 input#menu:checked ~ nav {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+input#menu:checked ~ .menu {
+  -webkit-transform: translateY(10px) rotate(45deg);
+          transform: translateY(10px) rotate(45deg);
+  background-color: #2b2b2b;
+}
+
+input#menu:checked ~ .menu:after {
+  -webkit-transform: translateY(-20px) rotate(-90deg);
+          transform: translateY(-20px) rotate(-90deg);
+}
+
+input#menu:checked ~ .menu:before {
+  -webkit-transform: translateY(-10px) rotate(-45deg);
+          transform: translateY(-10px) rotate(-45deg);
+  opacity: 0;
+}
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  width: 50px;
+  height: 5px;
+  border-radius: 2.5px;
+  z-index: 2;
+  background-color: #db005b;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.menu:before, .menu:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 5px;
+  background-color: inherit;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.menu:before {
+  top: 10px;
+}
+
+.menu:after {
+  top: 20px;
 }
 
 main {
@@ -414,7 +466,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 50px;
+  padding: 100px 0 50px;
   background-color: #dfdfdf;
   width: 100%;
   -ms-grid-column: 1;
@@ -502,6 +554,7 @@ main {
 }
 
 .aboutContainer .profilePictureContainer img {
+  display: block;
   width: 100%;
 }
 
@@ -511,7 +564,7 @@ main {
           box-sizing: border-box;
   width: 100px;
   height: 100px;
-  border-left: 100px solid crimson;
+  border-left: 100px solid #db005b;
   border-top: 100px solid transparent;
   position: absolute;
   bottom: -30px;
@@ -565,7 +618,7 @@ main {
 }
 
 .aboutContainer .profileText a:hover, .aboutContainer .profileText a:focus {
-  background-color: crimson;
+  background-color: #db005b;
 }
 
 .timeline {
@@ -770,12 +823,12 @@ main {
 .selectionPanel--month {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (80px)[4];
-      grid-template-columns: repeat(4, 80px);
+  -ms-grid-columns: (24%)[4];
+      grid-template-columns: repeat(4, 24%);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 .selectionPanel--month button.selection {
@@ -791,12 +844,12 @@ main {
 .selectionPanel--year--display {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (80px)[4];
-      grid-template-columns: repeat(4, 80px);
+  -ms-grid-columns: (24%)[4];
+      grid-template-columns: repeat(4, 24%);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 .selectionPanel--year--display button.selection:nth-child(9) {
@@ -899,6 +952,8 @@ main {
 }
 
 .myStory {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 350px auto;
@@ -908,15 +963,15 @@ main {
   -webkit-column-gap: 80px;
           column-gap: 80px;
   row-gap: 80px;
-  height: 700px;
-  margin: 50px 0 20px;
+  height: 600px;
+  padding-top: 170px;
   position: relative;
 }
 
 .myStory a.link {
   position: absolute;
   left: calc(50% - 90px);
-  bottom: 50px;
+  bottom: 70px;
   background-color: #00144b;
   width: 200px;
   padding: 10px;
@@ -978,6 +1033,7 @@ main {
 }
 
 .individualProject .projectImageContainer img {
+  display: block;
   width: 100%;
 }
 
@@ -1220,10 +1276,10 @@ main {
 }
 
 .contactInfo a:hover, .contactInfo a:focus {
-  background-color: crimson;
+  background-color: #db005b;
 }
 
-.contactInfo ul {
+ul.contactLinks {
   background: none;
   list-style: none;
   padding: 0;
@@ -1232,13 +1288,33 @@ main {
   display: grid;
   -ms-grid-columns: (50px)[4];
       grid-template-columns: repeat(4, 50px);
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-.contactInfo ul li {
+ul.contactLinks li {
   height: 50px;
 }
 
-.contactInfo ul li a {
+ul.contactLinks li i {
+  position: relative;
+  height: 40px;
+}
+
+ul.contactLinks li i:after {
+  content: '';
+  width: 95%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  z-index: -1;
+}
+
+ul.contactLinks li a {
   text-decoration: none;
   color: #00144b;
   font-size: 5rem;
@@ -1246,19 +1322,9 @@ main {
   padding: 0;
 }
 
-.contactInfo ul li a:hover, .contactInfo ul li a:focus {
+ul.contactLinks li a:hover, ul.contactLinks li a:focus {
   background: none;
-  color: crimson;
-}
-
-.contactInfo .buttonContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.contactInfo .buttonContainer a {
-  margin-right: 10px;
+  color: #db005b;
 }
 
 .pictureContainer {
@@ -1269,6 +1335,20 @@ main {
 .pictureContainer img {
   width: 100%;
   border-radius: 50%;
+  display: block;
+}
+
+.buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.buttonContainer a {
+  margin: 10px 10px 10px 0;
+  text-align: center;
 }
 
 footer {
@@ -1323,10 +1403,11 @@ footer p {
         -ms-grid-row-align: center;
         align-self: center;
   }
-}
-
-@media (max-width: 970px) {
+  nav ul {
+    width: 100%;
+  }
   .myStory {
+    margin-bottom: 100px;
     height: auto;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -1341,6 +1422,9 @@ footer p {
   .myStory form {
     -ms-grid-row: 3;
     grid-row: 3;
+  }
+  .myStory a.link {
+    bottom: 0;
   }
   .myStory .timeline {
     position: relative;
@@ -1368,7 +1452,33 @@ footer p {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 770px) {
+  .wrapper {
+    width: calc(100% - 50px);
+  }
+  nav {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    left: auto;
+    right: 0;
+    width: 30%;
+    border-radius: 5px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  nav ul.wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  nav ul.wrapper li {
+    margin: 5px 0;
+  }
+  input#menu, .menu {
+    display: block;
+  }
   .technicalSkills ul {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
@@ -1380,11 +1490,8 @@ footer p {
   .aboutContainer .profileText .aboutText h3 {
     font-size: 3.5rem;
   }
-}
-
-@media (max-width: 500px) {
-  .wrapper {
-    width: calc(100% - 50px);
+  .contact:before {
+    background-position: 60%;
   }
 }
 
@@ -1426,6 +1533,9 @@ footer p {
   .calendarDisplay button.day {
     height: 40px;
   }
+  .selectionPanel {
+    top: 40px;
+  }
   .myStory .timeline {
     -ms-grid-column-align: center;
         justify-self: center;
@@ -1440,5 +1550,18 @@ footer p {
   }
   .journal {
     width: 280px;
+  }
+  .contact:before {
+    background-position: 70%;
+  }
+  .contactContainer:before {
+    background: -webkit-gradient(linear, left top, right top, from(whitesmoke), to(#2c2c2c00));
+    background: linear-gradient(90deg, whitesmoke 0%, #2c2c2c00 100%);
+  }
+  .buttonContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }

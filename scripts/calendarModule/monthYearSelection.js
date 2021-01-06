@@ -91,7 +91,7 @@ const monthYearSelection = function() {
         const monthButton = calendarNav.getElementsByClassName('monthButton')[0];
         const yearButton = calendarNav.getElementsByClassName('yearButton')[0];
         const selectionPanel = calendarNav.getElementsByClassName('selectionPanel')[0];
-        const heightOfSelectionPanel = document.getElementsByClassName('calendarDisplay')[0].offsetHeight - 50;
+        const heightOfSelectionPanel = document.getElementsByClassName('calendarDisplay')[0].offsetHeight - calendarNav.offsetHeight;
         selectionPanel.style.height = heightOfSelectionPanel + 'px';
         if (year) {
             const selectionPanelHTML = createYearSelectionPanel();

@@ -328,7 +328,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   background-color: #ffffff;
   display: -webkit-box;
@@ -376,7 +376,7 @@ input#menu {
      -moz-appearance: none;
           appearance: none;
   cursor: pointer;
-  z-index: 3;
+  z-index: 4;
 }
 
 input#menu:checked ~ nav {
@@ -409,7 +409,7 @@ input#menu:checked ~ .menu:before {
   width: 50px;
   height: 5px;
   border-radius: 2.5px;
-  z-index: 2;
+  z-index: 3;
   background-color: #db005b;
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;

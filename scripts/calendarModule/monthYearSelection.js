@@ -10,6 +10,10 @@ const monthYearSelection = function() {
 
     // getCurrentDecade function to generate the years in a decaded starting with the 'start' year as the parameter
     function getCurrentDecade(start) {
+        // if the starting year is not the start of the decade, set it to the start of the decade
+        if (start % 10) {
+            start -= start % 10;
+        };
         return [start, start + 1, start + 2, start + 3, start + 4, start + 5, start + 6, start + 7, start + 8, start + 9];
     };
 

@@ -8,18 +8,27 @@
     height: 600px;
     padding-top: 170px;
     position: relative;
-    a.link {
+    .buttonContainer {
         position: absolute;
-        left: calc(50% - 90px);
+        left: calc(50% - 200px);
         bottom: 70px;
+    }
+    a:hover, a:focus {
+        background-color: crimson;
+    }
+    .linkToContact {
         background-color: #00144b;
         width: 200px;
         padding: 10px;
         border-radius: 5px;
         text-align: center;
         color: whitesmoke;
-        &:hover, &:focus {
-            background-color: crimson;
-        }
+    }
+    .linkToVideo {
+        width: 200px;
+        padding: 10px;
+        color: whitesmoke;
+        background-color: #00144b;
+        border-radius: 5px;
     }
 }

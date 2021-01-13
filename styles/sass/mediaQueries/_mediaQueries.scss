@@ -36,8 +36,8 @@
         form {
             grid-row: 3;
         }
-        a.link {
-            bottom: 0;
+        .buttonContainer {
+            bottom: -50px;
         }
         .timeline {
             position: relative;
@@ -98,6 +98,13 @@
     }
     .contact:before {
         background-position: 60%;
+    }
+}
+
+@media (max-width: 510px) {
+    .myStory .buttonContainer {
+        bottom: -70px;
+        left: calc(50% - 100px);
     }
 }
 

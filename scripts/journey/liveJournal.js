@@ -92,6 +92,7 @@ const liveJournal = function() {
         const journalSection = `
             <h2>
                 ${months[chosenDate.getMonth()]} ${getCardinalNumber(chosenDate.getDate())}, ${chosenDate.getFullYear()}
+                
             </h2>
             ${
                 !classList.includes('juno') && !classList.includes('crc') && !classList.includes('coursera') && !classList.includes('gis')

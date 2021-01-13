@@ -423,6 +423,7 @@ input#menu:checked ~ .menu:before {
   position: absolute;
   width: 50px;
   height: 5px;
+  border-radius: 2.5px;
   background-color: inherit;
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;
@@ -500,6 +501,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 10px 0;
   gap: 5px;
   font-size: 5.5rem;
 }
@@ -969,10 +971,17 @@ main {
   position: relative;
 }
 
-.myStory a.link {
+.myStory .buttonContainer {
   position: absolute;
-  left: calc(50% - 90px);
+  left: calc(50% - 200px);
   bottom: 70px;
+}
+
+.myStory a:hover, .myStory a:focus {
+  background-color: crimson;
+}
+
+.myStory .linkToContact {
   background-color: #00144b;
   width: 200px;
   padding: 10px;
@@ -981,8 +990,12 @@ main {
   color: whitesmoke;
 }
 
-.myStory a.link:hover, .myStory a.link:focus {
-  background-color: crimson;
+.myStory .linkToVideo {
+  width: 200px;
+  padding: 10px;
+  color: whitesmoke;
+  background-color: #00144b;
+  border-radius: 5px;
 }
 
 .projects {
@@ -1431,8 +1444,8 @@ footer p {
     -ms-grid-row: 3;
     grid-row: 3;
   }
-  .myStory a.link {
-    bottom: 0;
+  .myStory .buttonContainer {
+    bottom: -50px;
   }
   .myStory .timeline {
     position: relative;
@@ -1500,6 +1513,13 @@ footer p {
   }
   .contact:before {
     background-position: 60%;
+  }
+}
+
+@media (max-width: 510px) {
+  .myStory .buttonContainer {
+    bottom: -70px;
+    left: calc(50% - 100px);
   }
 }
 

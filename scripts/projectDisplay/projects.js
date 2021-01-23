@@ -57,7 +57,7 @@ const projects = [
     {
         imgFile: './assets/mothersHeart.jpg',
         name: 'Mother\'s Heart',
-        technologies: 'HTML5 | Sass | PHP | MongoDB',
+        technologies: 'HTML5 | Sass | React JS | MongoDB',
         description: '',
         features: 'access to data history, health data dashboard',
         deadline: 'self-initiated project with regular updates',

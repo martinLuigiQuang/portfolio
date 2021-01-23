@@ -91,11 +91,6 @@ const monthYearSelection = function() {
         selectionPanel.style.height = 0;
         // render next month's name to the monthly selection button in the calendarNav bar
         monthButton.innerHTML = months[calendarMonth];
-        // update chosenDate with the newly selected month; new chosenDate is set to the first of the calendarMonth
-        chosenDate = new Date(calendarYear, calendarMonth, 1);
-        if (chosenDate - today > 0) {
-            chosenDate = today;
-        };
         // update the information in calendarInformation for other modules
         calendarInformation.getInformation('', chosenDate, calendarYear, calendarMonth);
         // render new calendar with the newly selected month
@@ -117,11 +112,6 @@ const monthYearSelection = function() {
         selectionPanel.style.height = 0;
         // update the yearly selection button with the newly selected year value
         yearButton.innerHTML = calendarYear;
-        // update chosenDate with the newly selected year; new chosenDate is set to the first of the calendarMonth
-        chosenDate = new Date(calendarYear, calendarMonth, 1);
-        if (chosenDate - today > 0) {
-            chosenDate = today;
-        };
         // update the information in calendarInformation for other modules
         calendarInformation.getInformation('', chosenDate, calendarYear, calendarMonth);
         // render new calendar with the newly selected year

@@ -60,6 +60,7 @@ const monthYearSelection = function() {
     function handleYearSelectionNav(change, buildSelectionPanel, buildCalendar) {
         currentDecade = currentDecade.map(year => year + change);
         buildSelectionPanel(true, buildCalendar);
+        return;
     };
 
     // function to handle selection buttons from the selection panel
@@ -74,6 +75,7 @@ const monthYearSelection = function() {
             selectionPanel.innerHTML = '';
             selectionPanel.style.height = 0;
         };
+        return;
     };
 
     // function to handle the selection of a new month from the selection panel
@@ -95,6 +97,7 @@ const monthYearSelection = function() {
         calendarInformation.getInformation('', chosenDate, calendarYear, calendarMonth);
         // render new calendar with the newly selected month
         buildCalendar();
+        return;
     };
 
     // function to handle the selection of a new year from the selection panel
@@ -116,6 +119,7 @@ const monthYearSelection = function() {
         calendarInformation.getInformation('', chosenDate, calendarYear, calendarMonth);
         // render new calendar with the newly selected year
         buildCalendar();
+        return;
     };
 
     // function to build the selection panel
@@ -165,6 +169,7 @@ const monthYearSelection = function() {
                 });
             };
         };
+        return;
     };
 
     return {

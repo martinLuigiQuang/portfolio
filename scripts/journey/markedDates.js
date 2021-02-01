@@ -1,5 +1,4 @@
 import calendarInformation from '../calendarModule/calendarInformation.js';
-import stories from './stories.js';
 
 const markedDates = function() {
     const redCrossStartDate = new Date(2020, 5, 27); // June 27th, 2020: started working as an emergency responder at Canadian Red Cross (CRC)
@@ -61,6 +60,7 @@ const markedDates = function() {
                 };
             };
         });
+        return;
     };
 
     return{

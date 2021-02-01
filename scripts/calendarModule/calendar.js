@@ -10,12 +10,12 @@ const calendar = function() {
     const form = calendarContainer.parentElement; // the form element that should be the parent of the calendarContainer; will log an error if the parent element is not a <form>
 
     // Initial imports from calendarGenerator module; updated values will be exported back to calendarGenerator by the calendarGenerator.importFromCalendar() method
-    let [minimized,, calendarYear, calendarMonth] = calendarInformation.setInformation(); // variable to toggle calendar between normal and minimized; default is normal; if minimized, the value is set to 'minimized', else it is an empty string
+    let [minimized,,,] = calendarInformation.setInformation(); // variable to toggle calendar between normal and minimized; default is normal; if minimized, the value is set to 'minimized', else it is an empty string
     
     // buildCalendar function to bind the calendar display HTML to the DOM element that holds it, and to attach event listeners to enable interactions with the calendar
     function buildCalendar() {
         // import the 'minimized' value from calendarGenerator module
-        [minimized,, calendarYear, calendarMonth] = calendarInformation.setInformation();
+        [minimized,,,] = calendarInformation.setInformation();
         // calendarDisplay local variable to hold the value returned from the function call to generateCalendar function
         const calendarDisplay = calendarGenerator.generateCalendar();
         // Clear inner HTML of the calendarContainer then append the new content of calendarDisplay to it in order to update the calendar
@@ -49,7 +49,7 @@ const calendar = function() {
 
             calendar.onclick = (event) => {
                 // bind event listeners to each of the date entries
-                if (event.target.classList.value.includes('day') || event.target.parentNode.classList.value.includes('day')) {
+                if (event.target.classList.value.includes('day') || event.target.parentNode.classList.value.includes('day') && !event.target.parentNode.disabled) {
                     let day = event.target.children.length ? event.target.value : event.target.parentNode.value;
                     calendarEventListeners.handleChosenDate(day, () => buildCalendar());
                     calendarEventListeners.handleCollapse(() => buildCalendar());
@@ -82,6 +82,7 @@ const calendar = function() {
                 };
             };
         };
+        return;
     };
 
     // checkForm function to check if the calendar is placed within a <form> element; if not, do not build the calendar and log an error message
@@ -92,11 +93,13 @@ const calendar = function() {
         } else {
             console.log('Calendar must be placed in a <form> element');
         };
+        return;
     };
 
     // Wrap buildCalendar function in an init function to be exported to other modules
     function init() {
         checkForm();
+        return;
     };
 
     // Return init function to be exported to app.js

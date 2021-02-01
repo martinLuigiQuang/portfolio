@@ -12,6 +12,7 @@ const calendarInformation = function() {
         chosenDate = date;
         calendarYear = year;
         calendarMonth = month;
+        return;
     };
 
     function setInformation() {

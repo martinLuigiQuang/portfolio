@@ -44,6 +44,7 @@ const journey = function() {
         calendarInformation.getInformation('minimized', chosenDate, chosenDate.getFullYear(), chosenDate.getMonth());
         // build new calendar and timeline
         buildCalendar();
+        return;
     };
 
     function buildTimeline(buildCalendar) {
@@ -58,6 +59,7 @@ const journey = function() {
             milestone.onclick = (event) => handleClickOnMilestones(event, buildCalendar);
         });
         liveJournal.buildJournal();
+        return;
     };
     
     return {

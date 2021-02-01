@@ -111,6 +111,7 @@ const liveJournal = function() {
         const journalSection = document.getElementsByClassName('journal')[0];
         journalSection.innerHTML = '';
         journalSection.appendChild(journalPage.content);
+        return;
     };
 
     return {

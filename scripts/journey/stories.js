@@ -1,8 +1,4 @@
-import calendarInformation from '../calendarModule/calendarInformation.js';
-
 const stories = function() {
-    const [,, today] = calendarInformation.exportConstants();
-
     const gis = {
         milestone: '',
         story: '',

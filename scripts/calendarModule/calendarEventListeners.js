@@ -13,6 +13,7 @@ const calendarEventListeners = function() {
         calendarInformation.getInformation(minimized, chosenDate, calendarYear, calendarMonth);
         // build new calendar with the new imports from calendarGenerator module
         buildCalendar();
+        return;
     };
 
     // handleCalendarNav function to change the month (and year) according to the user's interaction
@@ -38,6 +39,7 @@ const calendarEventListeners = function() {
         calendarInformation.getInformation(minimized, chosenDate, calendarYear, calendarMonth);
         // build new calendar with the new imports from calendarGenerator module
         buildCalendar();
+        return;
     };
 
     // handleCollapse function to toggle the global variable minimized
@@ -53,6 +55,7 @@ const calendarEventListeners = function() {
         calendarInformation.getInformation(minimized, chosenDate, calendarYear, calendarMonth);
         // build new calendar with the new imports from calendarGenerator module
         buildCalendar();
+        return;
     };
 
     return {

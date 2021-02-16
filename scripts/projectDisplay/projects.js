@@ -1,16 +1,5 @@
 const projects = [
     {
-        imgFile: './assets/thisDayInHistory.png',
-        name: 'This Day In History',
-        technologies: 'HTML5 | CSS3 | React JS | RESTful API',
-        description: 'An interactive web application that allows a user to select a date and explore what happened throughout history on the same day.',
-        features: 'thematically-styled calendar built in React, content awareness',
-        deadline: 'project completed in 7 days',
-        liveLink: 'https://martinluigiquang.github.io/martin-nguyen-project-five/',
-        gitHubRepo: 'https://github.com/martinLuigiQuang/martin-nguyen-project-five'
-    },
-    
-    {
         imgFile: './assets/bookClub.jpg',
         name: 'Book Club Reads',
         technologies: 'HTML5 | CSS3 | React JS | RESTful API | Firebase',
@@ -32,6 +21,31 @@ const projects = [
         gitHubRepo: 'https://github.com/martinLuigiQuang/martin-nguyen-project-one'
     },
     
+
+    {
+        imgFile: './assets/mothersHeart.jpg',
+        name: 'Mother\'s Heart',
+        technologies: 'HTML5 | Sass | React JS | MongoDB',
+        description: '',
+        features: 'access to data history, health data dashboard',
+        deadline: 'self-initiated project with regular updates',
+        liveLink: '',
+        gitHubRepo: ''
+    }
+];
+
+export const cachedProjects = [
+    {
+        imgFile: './assets/thisDayInHistory.png',
+        name: 'This Day In History',
+        technologies: 'HTML5 | CSS3 | React JS | RESTful API',
+        description: 'An interactive web application that allows a user to select a date and explore what happened throughout history on the same day.',
+        features: 'thematically-styled calendar built in React, content awareness',
+        deadline: 'project completed in 7 days',
+        liveLink: 'https://martinluigiquang.github.io/martin-nguyen-project-five/',
+        gitHubRepo: 'https://github.com/martinLuigiQuang/martin-nguyen-project-five'
+    },
+
     {
         imgFile: './assets/myTimerApp.png',
         name: 'My Timer App',
@@ -53,17 +67,6 @@ const projects = [
         liveLink: 'https://martin-prachi-project4.github.io/martinNguyenPrachiGujarProject4/',
         gitHubRepo: 'https://github.com/martin-prachi-project4/martinNguyenPrachiGujarProject4'
     },
-
-    {
-        imgFile: './assets/mothersHeart.jpg',
-        name: 'Mother\'s Heart',
-        technologies: 'HTML5 | Sass | React JS | MongoDB',
-        description: '',
-        features: 'access to data history, health data dashboard',
-        deadline: 'self-initiated project with regular updates',
-        liveLink: '',
-        gitHubRepo: ''
-    }
 ];
 
 export default projects;

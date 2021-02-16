@@ -1115,7 +1115,7 @@ main {
 }
 
 .project--1 .projectImageContainer {
-  background-color: #1b2456;
+  background-color: #1b2457;
 }
 
 .project--1 .projectImageContainer:hover > .projectDescription,
@@ -1126,49 +1126,16 @@ main {
   visibility: visible;
 }
 
-.project--2 .projectImageContainer {
-  background-color: yellow;
-}
-
-.project--2 .projectImageContainer:hover > .projectDescription, .project--2 .projectImageContainer:focus > .projectDescription {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  opacity: 1;
-  visibility: visible;
-}
-
-.project--3 .projectImageContainer {
-  background-color: whitesmoke;
-}
-
-.project--3 .projectImageContainer:hover > .projectDescription, .project--3 .projectImageContainer:focus > .projectDescription {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  opacity: 1;
-  visibility: visible;
-}
-
-.project--4 .projectImageContainer {
-  background-color: pink;
-}
-
-.project--4 .projectImageContainer:hover > .projectDescription, .project--4 .projectImageContainer:focus > .projectDescription {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  opacity: 1;
-  visibility: visible;
-}
-
-.project--5 .projectDescription a {
+.project--2 .projectDescription a {
   display: none;
 }
 
-.project--5 .projectImageContainer {
+.project--2 .projectImageContainer {
   background-color: coral;
   position: relative;
 }
 
-.project--5 .projectImageContainer:after {
+.project--2 .projectImageContainer:after {
   content: 'coming soon';
   font-size: 3rem;
   text-transform: uppercase;
@@ -1188,14 +1155,14 @@ main {
   position: absolute;
 }
 
-.project--5 .projectImageContainer:hover > .projectDescription, .project--5 .projectImageContainer:focus > .projectDescription {
+.project--2 .projectImageContainer:hover > .projectDescription, .project--2 .projectImageContainer:focus > .projectDescription {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
   visibility: visible;
 }
 
-.project--5 .projectImageContainer:hover > .projectDescription a, .project--5 .projectImageContainer:focus > .projectDescription a {
+.project--2 .projectImageContainer:hover > .projectDescription a, .project--2 .projectImageContainer:focus > .projectDescription a {
   display: none;
 }
 

@@ -91,37 +91,7 @@
             }
         }
     }
-    &--2 {
-        .projectImageContainer {
-            background-color: yellow;
-            &:hover > .projectDescription, &:focus > .projectDescription {
-                transform: scale(1);
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-    }
     &--3 {
-        .projectImageContainer {
-            background-color: whitesmoke;
-            &:hover > .projectDescription, &:focus > .projectDescription {
-                transform: scale(1);
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-    }
-    &--4 {
-        .projectImageContainer {
-            background-color: pink;
-            &:hover > .projectDescription, &:focus > .projectDescription {
-                transform: scale(1);
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-    }
-    &--5 {
         .projectDescription a {
             display: none;
         }

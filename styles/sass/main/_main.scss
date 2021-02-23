@@ -41,9 +41,6 @@ main {
                 height: 55%;
                 filter: saturate(100%) hue-rotate(290deg);
             }
-            &:nth-last-child(2) {
-                grid-column: 2;
-            }
         }
     }
 }

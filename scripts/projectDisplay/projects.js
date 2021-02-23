@@ -2,7 +2,7 @@ const projects = [
     {
         imgFile: './assets/bookClub.jpg',
         name: 'Book Club Reads',
-        technologies: 'HTML5 | CSS3 | React JS | RESTful API | Firebase',
+        technologies: 'HTML5 | CSS3 | JavaScript | React | RESTful API | Firebase',
         description: 'A book search application that allows the user to save their books and track their reading progress',
         features: 'multi-lingual user interface, search autosuggestion, pagination',
         deadline: 'group project completed with Brittany Barnard, Marielle Roberts, and Jonathan Lyn in 7 days',
@@ -25,7 +25,7 @@ const projects = [
     {
         imgFile: './assets/mothersHeart.jpg',
         name: 'Mother\'s Heart',
-        technologies: 'HTML5 | Sass | React JS | MongoDB',
+        technologies: 'HTML5 | Sass | TypeScript | MongoDB | Express | Node.js | React | Plotly',
         description: '',
         features: 'access to data history, health data dashboard',
         deadline: 'self-initiated project with regular updates',

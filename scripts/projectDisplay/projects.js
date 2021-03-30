@@ -30,7 +30,7 @@ const projects = [
         features: 'access to data history, health data dashboard',
         deadline: 'self-initiated project with regular updates',
         liveLink: '',
-        gitHubRepo: ''
+        gitHubRepo: 'https://github.com/martinLuigiQuang/heart-monitor-app'
     }
 ];
 

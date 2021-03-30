@@ -92,7 +92,7 @@
         }
     }
     &--2 {
-        .projectDescription a {
+        .projectDescription a:first-child {
             display: none;
         }
         .projectImageContainer {
@@ -115,9 +115,6 @@
                 transform: scale(1);
                 opacity: 1;
                 visibility: visible;
-                a {
-                    display: none;
-                }
             }
         }
     }

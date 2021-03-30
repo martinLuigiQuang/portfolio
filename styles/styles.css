@@ -1121,7 +1121,7 @@ main {
   visibility: visible;
 }
 
-.project--2 .projectDescription a {
+.project--2 .projectDescription a:first-child {
   display: none;
 }
 
@@ -1155,10 +1155,6 @@ main {
           transform: scale(1);
   opacity: 1;
   visibility: visible;
-}
-
-.project--2 .projectImageContainer:hover > .projectDescription a, .project--2 .projectImageContainer:focus > .projectDescription a {
-  display: none;
 }
 
 .contact {

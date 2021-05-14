@@ -549,7 +549,7 @@ main {
           flex: 0 0 500px;
   height: 500px;
   position: relative;
-  border: 10px solid  goldenrod;
+  border: 10px solid goldenrod;
 }
 
 .aboutContainer .profilePictureContainer img {

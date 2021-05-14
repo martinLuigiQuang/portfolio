@@ -7,7 +7,7 @@ const journey = function() {
 
     function createTimeline() {
         // import universal calendar information
-        let [,, calendarYear, calendarMonth] = calendarInformation.setInformation();
+        let [, chosenDate, calendarYear, calendarMonth] = calendarInformation.setInformation();
         // filter out non-milestone stories then map out each of the milestone dates
         const milestones = stories.getStories().filter((story) => {
             return story.milestone;
@@ -20,7 +20,7 @@ const journey = function() {
                 milestones.map((milestone, index) => {
                     return (
                         index < milestones.length - 1
-                        ?   milestone.getFullYear() === calendarYear && milestone.getMonth() <= calendarMonth && 
+                        ?   milestone.getFullYear() === calendarYear && milestone.getMonth() <= calendarMonth &&
                             (milestones[index + 1].getMonth() > calendarMonth || milestones[index + 1].getFullYear() > milestone.getFullYear())
                             ?   `<button class="milestone focus" value="${milestone}"></button>`
                             :   `<button class="milestone" value="${milestone}"></button>`
